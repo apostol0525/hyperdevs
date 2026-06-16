@@ -1,0 +1,1161 @@
+
+*, *::before, *::after {
+    box-sizing: border-box; /* Теперь 100% — это реально 100%, включая отступы */
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* Это убьет полосу прокрутки внизу */
+    position: relative;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: var(--light);
+      background-color: #131313;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(47, 128, 237, 0.15) 0px, transparent 50%), /* Синий в левом верхнем углу */
+        radial-gradient(at 100% 100%, rgba(47, 128, 237, 0.1) 0px, transparent 50%); /* Мягкий синий в правом нижнем */
+    background-attachment: fixed;
+}
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --dark:#121212;
+    --blue: #2F80ED;
+    --light:#fff;
+    --inter:'inter', sans-serif;
+    --gray-text:#a3a3a3;
+     --bg-color: #1E1E1E;
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+.container {
+     width: 100%; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1.5rem;  /* На мобилках лучше чуть меньше, чем 2.5 */
+    padding-right: 1.5rem;
+}
+
+.header {
+    padding: 1.5rem 0;
+    background-color:rgba(19, 19, 19, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+     transition: all 0.4s ease;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list {
+    display:flex;
+    gap: 4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*.burger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+    padding: 0;
+}
+
+.burger-btn span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--light);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+     transform-origin: left center;
+}*/
+
+.burger-btn {
+    position: relative; /* Для точного позиционирования линий внутри */
+    width: 30px;
+    height: 30px; /* Сделаем квадратную область, так легче центровать */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger-btn span {
+    position: absolute; /* Все линии накладываются друг на друга в центре */
+    width: 100%;
+    height: 2px;
+    background-color: var(--light);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center; /* Крутим ровно вокруг центра */
+}
+
+
+.burger-btn span:nth-child(1) {
+    transform: translateY(-8px); /* Верхняя линия выше на 8px */
+}
+
+.burger-btn span:nth-child(2) {
+    /* Средняя остается в центре (0) */
+}
+
+.burger-btn span:nth-child(3) {
+    transform: translateY(8px); /* Нижняя линия ниже на 8px */
+}
+
+.burger-btn.active span:nth-child(1) {
+    transform: translateY(0) rotate(45deg); /* Прыгает в центр и крутится */
+    background-color: var(--blue);
+}
+
+.burger-btn.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px); /* Красиво улетает вбок */
+}
+
+.burger-btn.active span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg); /* Прыгает в центр и крутится */
+    background-color: var(--blue);
+}
+
+.logo {
+  font-family: var(--inter);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--light);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.logo {
+    text-shadow: 0 0 15px rgba(47, 128, 237, 0.3);
+}
+
+.logo span {
+    color: #2F80ED;
+}
+
+.nav-link {
+    font-family: var(--inter);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+     color: rgba(255, 255, 255, 0.8); /* Чуть приглушаем */
+    transition: all 0.3s ease;
+    
+}
+
+.nav-link:hover {
+    color: var(--blue);
+    text-shadow: 0 0 10px rgba(47, 128, 237, 0.5);
+    
+}
+
+
+.section-header {
+    text-align: center;
+    font-family: var(--inter);
+    margin-top: 13rem;
+}
+
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
+}
+
+.section-title-ellipse {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
+}
+
+.section-title-color {
+    color: var(--blue);
+}
+
+#dynamic-word {
+    display: inline-block;
+     transition: opacity 0.4s ease, transform 0.4s ease;
+    min-width: 170px;
+    text-align: center;
+   
+}
+
+.word-hidden {
+    opacity: 0;
+    transform: translateY(-15px);
+}
+
+.section-text {
+    margin-bottom: 4rem;
+    color: var(--gray-text);
+    font-size: 2rem;
+    font-weight: 700;
+    
+}
+
+.button-title {
+  all: unset;
+  cursor: pointer;
+  background: var(--blue);
+  padding: 16px 32px;
+  border-radius: 20px;
+  font-size: 20px;
+  box-shadow: 0px 0px 20px rgba(47, 128, 237, 0.4);
+  transition: box-shadow 0.3s ease;
+
+ display: inline-flex;
+ align-items: center;
+ gap: 12px;
+ color: var(--light);
+ text-decoration: none;
+
+}
+
+.button-icon {
+   width: 24px;
+   height: 24px;
+   object-fit: contain;
+}
+
+.button-title:hover {
+    box-shadow: 0px 0px 20px rgba(47, 128, 237, 0.7);
+}
+
+
+.section-portfolio {
+    font-family: var(--inter);
+    margin-top: 15rem;
+}
+
+.section-name {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 600;
+    margin-bottom: 10rem;
+}
+
+.card {
+    display: flex;
+    gap: 2rem;
+}
+
+.card-item {
+    /*width: 100%;
+    max-width: 370px;
+    border: 1px solid  rgba(47, 128, 237, 0.5); ;
+    border-radius: 1rem 1rem;
+    transition: transform 0.3s ease;*/
+    position: relative;
+    width: 100%;
+    max-width: 370px;
+    border-radius: 1rem;
+    overflow: hidden; 
+    background: №131313; 
+    flex-direction: column;
+    z-index: 1;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(47, 128, 237, 0.4);
+}
+
+.card-item:hover {
+ transform: translateY(-20px); 
+ border-color: var(--blue);
+ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+
+.card-img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.card-content h4 {
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 1rem;
+    padding-right: 0;
+}
+
+.card-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+
+.card-text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--gray-text);
+    
+}
+
+.card-footer {
+    display: block;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--blue);
+    margin-top: 1rem;
+    
+    
+}
+
+.animated-border {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.animated-border::before {
+   content: "";
+    position: absolute;
+    /* inset: -1px прижимает ползунок вплотную к твоему бордеру */
+    inset: -1px; 
+    border-radius: inherit;
+    padding: 2px; /* Толщина ползунка */
+    
+    /* КОРОТКИЙ ПОЛЗУНОК: всего 5% от круга */
+    background: conic-gradient(
+        from var(--angle),
+        transparent 0%,
+       rgba(47, 128, 237, 0.2) 5%,  /* Слабый хвост */
+        #2F80ED 10%,                 /* Основной синий */
+        #0c42d6 12%,                 /* ЯРКАЯ БЕЛАЯ ГОЛОВА (эффект искры) */
+        #2F80ED 14%,                 /* Переход обратно в синий */
+        transparent 20%        
+    );
+    
+    /* МАГИЯ МАСКИ: показывает только ту часть ползунка, которая лежит на рамке */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    
+    /* Поднимаем над фото */
+    z-index: 10; 
+    pointer-events: none;
+    
+    /* Анимация вращения через кастомное свойство */
+    animation: rotate-angle 8s linear infinite;
+     filter: drop-shadow(0 0 8px #2F80ED) drop-shadow(0 0 15px #2F80ED);
+     filter: drop-shadow(0 0 10px #2F80ED) brightness(1.5);
+
+ 
+}
+
+.animated-border::after {
+
+    content: '';
+    position: absolute;
+    /* Отступ определяет толщину рамки. 2px - тонкая, 4px - жирная */
+    inset: 0.5px; 
+     /* темный фон карточки */
+    border-radius: calc(1rem - 2px); /* Скругляем под размер карточки */
+    z-index: -1;
+
+}
+
+.card-item:hover.animated-border::before {
+    filter: drop-shadow(0 0 15px #2F80ED) brightness(2);
+    padding: 3px; /* Линия расширяется при наведении */
+    transition: all 0.3s ease;
+}
+
+@keyframes rotate-border {
+     0% {
+        --angle: 0deg;
+    }
+    20% {
+        --angle: 250deg; /* За 20% времени прошел 25% пути (Быстро) */
+    }
+    50% {
+        --angle: 150deg; /* До 50% времени шел медленнее */
+    }
+    70% {
+        --angle: 500deg; /* Снова ускорился */
+    }
+    100% {
+        --angle: 300deg; /* Замедлился к финишу */
+    }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotate-angle {
+  to { --angle: 360deg; }
+}
+
+
+/* Контейнер слайдера */
+.card-slider {
+    position: relative;
+    width: 100%;
+    height: 250px; 
+    overflow: hidden; /* Скрывает остальные фото */
+    border-radius: 1rem 1rem 0 0;
+
+
+}
+
+/* Общий класс для всех треков */
+.slider-track {
+   
+     display: flex;
+    height: 100%;
+}
+
+
+/* Самое важное: стили для фото внутри трека */
+.slide {
+    
+
+     flex-shrink: 0;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-4-photos .slide {
+    width: 25%; /* Один слайд - это 1/4 от ширины трека (т.е. ровно 100% окна) */
+}
+
+/* Специфические настройки для разного количества фото */
+.slider-4-photos {
+    width: 400%; 
+    animation: slide-4 16s infinite ease-in-out;
+}
+
+.dots-4 .dot:nth-child(1) { animation: active-4-1 16s infinite; }
+.dots-4 .dot:nth-child(2) { animation: active-4-2 16s infinite; }
+.dots-4 .dot:nth-child(3) { animation: active-4-3 16s infinite; }
+.dots-4 .dot:nth-child(4) { animation: active-4-4 16s infinite; }
+
+@keyframes active-4-1 {
+    0%, 20% { background: var(--blue); transform: scale(1.3); }
+    25%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+@keyframes active-4-2 {
+    0%, 20% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    25%, 45% { background: var(--blue); transform: scale(1.3); }
+    50%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+@keyframes active-4-3 {
+    0%, 45% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    50%, 70% { background: var(--blue); transform: scale(1.3); }
+    75%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+@keyframes active-4-4 {
+    0%, 70% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    75%, 95% { background: var(--blue); transform: scale(1.3); }
+    100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+
+.dots-4 .dot {
+    animation-duration: 16s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.slider-5-photos .slide {
+    width: 20% !important; /* Один слайд - это 1/4 от ширины трека (т.е. ровно 100% окна) */
+}
+
+.slider-5-photos {
+    width: 500%; 
+    animation: slide-5 20s infinite ease-in-out;
+}
+
+/* Анимации (твои были верными, оставляем их) */
+@keyframes slide-4 {
+    0%, 20% { transform: translateX(0); }
+    25%, 45% { transform: translateX(-25%); }
+    50%, 70% { transform: translateX(-50%); }
+    75%, 95% { transform: translateX(-75%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slide-5 {
+    0%, 15% { transform: translateX(0); }
+    20%, 35% { transform: translateX(-20%); }
+    40%, 55% { transform: translateX(-40%); }
+    60%, 75% { transform: translateX(-60%); }
+    80%, 95% { transform: translateX(-80%); }
+    100% { transform: translateX(0); }
+}
+
+.dots-5 .dot:nth-child(1) { animation: active-5-1 20s infinite ease-in-out; }
+.dots-5 .dot:nth-child(2) { animation: active-5-2 20s infinite ease-in-out; }
+.dots-5 .dot:nth-child(3) { animation: active-5-3 20s infinite ease-in-out; }
+.dots-5 .dot:nth-child(4) { animation: active-5-4 20s infinite ease-in-out; }
+.dots-5 .dot:nth-child(5) { animation: active-5-5 20s infinite ease-in-out; }
+
+/* ТОЧКА 1 - Активна, пока стоит 1-е фото (0-15%) и когда возвращаемся к нему (95-100%) */
+@keyframes active-5-1 {
+    0%, 15%, 95%, 100% { background: var(--blue); transform: scale(1.3); }
+    20%, 90% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+}
+
+/* ТОЧКА 2 - Активна, пока стоит 2-е фото (20-35%) */
+@keyframes active-5-2 {
+    0%, 15%, 40%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    20%, 35% { background: var(--blue); transform: scale(1.3); }
+}
+
+/* ТОЧКА 3 - Активна, пока стоит 3-е фото (40-55%) */
+@keyframes active-5-3 {
+    0%, 35%, 60%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    40%, 55% { background: var(--blue); transform: scale(1.3); }
+}
+
+/* ТОЧКА 4 - Активна, пока стоит 4-е фото (60-75%) */
+@keyframes active-5-4 {
+    0%, 55%, 80%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    60%, 75% { background: var(--blue); transform: scale(1.3); }
+}
+
+/* ТОЧКА 5 - Активна, пока стоит 5-е фото (80-95%) */
+@keyframes active-5-5 {
+    0%, 75%, 100% { background: rgba(255, 255, 255, 0.3); transform: scale(1); }
+    80%, 95% { background: var(--blue); transform: scale(1.3); }
+}
+
+/* Базовый стиль для точек (чтобы не мешались) */
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+.dot {
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+}
+
+.dots-5 .dot {
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+.dot.active { 
+    background: var(--blue); 
+}
+
+
+/* --- Секция Навыки --- */
+.section-skills {
+    margin-top: 15rem;
+    text-align: center;
+    font-family: var(--inter);
+}
+
+.skills-tags {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7rem;
+}
+
+.tags-row {
+    display: flex;
+    gap: 7rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag-item {
+    font-family: var(--inter);
+    padding: 0.8rem 2.2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--light);
+    cursor: default;
+    
+    /* ЭФФЕКТ СТЕКЛА (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.05); /* Полупрозрачный белый фон */
+    backdrop-filter: blur(10px); /* Размытие того, что под пилюлей */
+    -webkit-backdrop-filter: blur(10px); /* Поддержка для Safari */
+    border: 1px solid  rgba(47, 128, 237, 0.5); ; /* Тонкая "стеклянная" грань */
+    border-radius: 50px;
+    
+    /* Плавность анимации */
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+
+
+/* ЭФФЕКТ ПРИ НАВЕДЕНИИ */
+.tag-item:hover {
+    transform: translateY(-10px); /* Приподнимаем */
+    background: rgba(47, 128, 237, 0.15); /* Слегка подкрашиваем в твой синий #2F80ED */
+    border-color: var(--blue); /* Подсвечиваем рамку */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Добавляем тень для объема */
+    color: #fff;
+}
+
+.tag-item:hover.animated-border::before {
+     filter: drop-shadow(0 0 15px #2F80ED) brightness(2);
+    padding: 3px; /* Линия расширяется при наведении */
+    transition: all 0.3s ease;
+ }
+
+
+/* --- Секция Процесс --- */
+.section-process {
+    margin-top: 15rem;
+    font-family: var(--inter);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.process-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(47, 128, 237, 0.3);
+    padding: 2.5rem 1.5rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.process-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--blue);
+}
+
+.process-item:hover.animated-border::before {
+     filter: drop-shadow(0 0 15px #2F80ED) brightness(2);
+    padding: 3px; /* Линия расширяется при наведении */
+    transition: all 0.3s ease;
+}
+
+.process-number {
+    display: block;
+    font-family: var(--inter);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.process-title {
+    font-family: var(--inter);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+}
+
+.process-text {
+    font-family: var(--inter);
+    font-size: 0.95rem;
+    color: var(--gray-text);
+    line-height: 1.6;
+}
+
+.cta-block {
+    position: relative; /* Обязательно для позиционирования круга */
+    width: 100%;
+    margin-top: 15rem;
+    padding: 10rem 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--inter);
+}
+
+.cta-ellipse {
+    position: absolute;
+    width: 655px;
+    height: 653px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2F80ED;
+    opacity: 0.6;
+    filter: blur(100px);
+    border-radius: 50%;
+    pointer-events: none; 
+    z-index: -1; 
+    animation: live-blob 15s linear infinite;
+    
+}
+
+.cta-ellipse-2 {
+     position: absolute;
+    width: 655px;
+    height: 653px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2F80ED;
+    opacity: 0.6;
+    filter: blur(90px);
+    border-radius: 50%;
+    pointer-events: none; 
+    z-index: -1; 
+    animation: live-blob 10s linear infinite
+}
+
+.cta-block .section-title-ellipse, 
+.cta-block .section-text,
+.cta-block .button-title {
+    position: relative;
+    z-index: 2;
+}
+
+/*.cta-ellipse {
+    position: absolute;
+    width: 655px;
+    height: 653px;
+    background-color: #2F80ED;
+    opacity: 0.6; 
+    border-radius: 50%;
+   
+    left: 50%;
+    bottom: -200px; 
+    transform: translateX(-50%);
+    
+    animation: live-blob 15s linear infinite;
+}*/
+
+
+
+
+@keyframes live-blob {
+    0% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%; transform: translateX(-50%) rotate(0deg) scale(1); }
+    50% { border-radius: 60% 40% 30% 70% / 60% 60% 40% 40%; transform: translateX(-50%) rotate(180deg) scale(1.2); }
+    100% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%; transform: translateX(-50%) rotate(360deg) scale(1); }
+}
+
+.section-text-row {
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 4rem;
+    color: var(--gray-text);
+    font-weight: 700;
+}
+
+.footer-text {
+    font-family: var(--inter);
+    color: var(--gray-text);
+}
+
+.footer {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(47, 128, 237, 0.2);
+    margin-top: 10rem;
+}
+
+/* --- Адаптив --- */
+
+
+@media(max-width: 1100px) {
+
+.section-portfolio {
+    margin-top: 10rem;
+}
+
+  .card-content h4 {
+    margin: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.process-item {
+    padding: 1.5rem 1rem;
+}
+
+.card-name {
+    font-size: 1.3rem;
+    
+}
+
+.card-text {
+    font-size: 15px;
+    
+    
+}
+
+.section-skills {
+    margin-top: 10rem;
+}
+
+.skills-tags {
+    gap: 5rem;
+}
+
+.tags-row {
+    gap: 5rem;
+}
+
+.section-process {
+    margin-top: 10rem;
+}
+
+.section-title-ellipse {
+    font-size: 3.5rem;
+}
+
+}
+
+@media (max-width: 950px){
+
+    .logo {
+        margin-left: 2rem;
+    }
+
+     .footer .container {
+  flex-direction: column-reverse;
+  align-items: center;
+   gap: 25px;
+  }
+
+    .section .container {
+    flex-direction: column-reverse;
+    gap: 65px;
+  }
+
+    .section-title {
+        width: auto;
+        margin-bottom: 4rem;
+    }
+
+    .section-text{
+        font-size: 1.8rem;
+    }
+
+      .card {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap:25px;
+    }
+     .section-title-ellipse {
+      font-size: 3rem;
+      
+    }
+    
+}
+
+@media (max-width: 850px) {
+    .section-title {
+        font-size: 3.5rem;
+        width: auto;
+        margin-bottom: 3.5rem;
+    }
+
+
+
+    .card-item {
+        width: 100%;
+    max-width: 310px;
+    }
+
+    .card-slider {
+        height: 220px;
+    }
+
+    .section-title-ellipse {
+        font-size: 2.5rem;
+    }
+
+    .skills-tags {
+        flex-wrap: wrap;
+        gap: 35px;
+        justify-content: center;
+    }
+
+    .tags-row {
+        gap: 3rem;
+    }
+
+    .process-grid {
+       display: flex;
+       flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 1rem;
+    }
+
+    .process-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .cta-ellipse {
+    width: 550px;
+    height: 550px;
+    filter: blur(90px);
+}
+
+  .cta-ellipse-2 {
+    width: 550px;
+    height: 550px;
+    filter: blur(90px);
+}
+}
+
+@media (max-width: 750px) {
+
+    .header .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+.burger-btn {
+        display: flex; /* Показываем кнопку */
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Прячем меню за правый край */
+        overflow: hidden;
+        width: 70%;
+        height: 100vh;
+        background: rgba(18, 18, 18, 0.8); /* Темный фон */
+        backdrop-filter: blur(20px); /* Твой любимый эффект стекла */
+        padding-top: 100px;
+        transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 100;
+        visibility: hidden; 
+        opacity: 0;
+        border-left: 1px solid rgba(47, 128, 237, 0.2);
+
+        
+    }
+
+
+.nav.open {
+        right: 0; /* Выезжает при добавлении класса .open */
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-list {
+        flex-direction: column; /* Ссылки в столбик */
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .section-text {
+        font-size: 1.5rem;
+    }
+
+    .section-name {
+        font-size: 2rem;
+        margin-bottom: 7rem;
+    }
+
+    .section-portfolio .section-skills  {
+        margin-top: 8rem;
+    }
+
+    .section-process{
+        margin-top: 8rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+.section-title {
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.header {
+    padding: 1rem;
+}
+
+
+
+    .nav-link {
+        font-size: 1.5rem;
+    }
+    
+
+    .logo {
+        margin-left: 0;
+    }
+
+    .header-content {
+        justify-content: space-between;
+        
+    }
+
+    .section-portfolio   {
+        margin-top: 5rem;
+    }
+
+    .section-process {
+        margin-top: 5rem;
+    }
+
+    .section-skills {
+        margin-top: 5rem;
+    }
+
+    .skills-tags .tags-row {
+    gap: 2rem;
+   }
+
+    .cta-ellipse, .cta-ellipse-2 {
+        width: 500px;
+        height: 500px;
+        opacity: 0.6;
+        filter: blur(80px);
+    }
+
+    .section-title-ellipse {
+        margin-bottom: 3rem;
+    }
+
+     #dynamic-word {
+    min-width: 120px; 
+}
+
+.footer {
+    margin-top: 7rem;
+    padding: 0.2rem;
+}
+
+}
+
+
+@media (max-width: 500px) {
+
+.logo {
+    font-size: 1.8rem;
+}
+
+    .section-title {
+        font-size: 2.4rem;
+        margin-bottom: 2.5rem;
+    }
+
+     .tag-item {
+        font-size: 1.2rem;
+    }
+
+    .section-header, 
+.section-portfolio, 
+.section-skills, 
+.section-process, 
+.cta-block {
+    margin-top: 3.5rem !important; /* Уменьшаем с 15 до 5 */
+}
+
+.cta-ellipse, .cta-ellipse-2 {
+        width: 400px;
+        height: 400px;
+        opacity: 0.6;
+        filter: blur(80px);
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+.section-header {
+    margin-top: 10rem;
+}
+
+   .section-title {
+    font-size: 1.7rem;
+    margin-bottom: 2rem;
+   }
+
+   #dynamic-word {
+    min-width: 85px; 
+}
+
+   .section-text {
+    font-size: 1.2rem;
+   }
+
+   .skills-tags, .tags-row {
+    gap: 1.5rem;
+   }
+
+   .tag-item {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.5rem;
+   }
+
+.process-item {
+    padding: 1.5rem 1rem;
+
+}
+
+.process-number {
+    font-size: 2rem;
+}
+
+}
+
+
+
