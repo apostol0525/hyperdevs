@@ -54,7 +54,8 @@ html {
     -webkit-backdrop-filter: blur(15px);
      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
      transition: all 0.4s ease;
-    position: sticky;
+    position: fixed;
+     width: 100%;
     top: 0;
     z-index: 100;
 }
@@ -149,20 +150,39 @@ html {
 }
 
 .logo {
-  font-family: var(--inter);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--light);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 1px;
+   gap:0;
+  
 }
 
 .logo {
     text-shadow: 0 0 15px rgba(47, 128, 237, 0.3);
 }
 
-.logo span {
+.logo-text span {
     color: #2F80ED;
+}
+
+.logo-icon {
+    height: 4.4rem;
+    width: auto;
+    display: block;
+    object-fit: contain;
+     transform: translateY(8px);
+     margin-right: -22px;
+     margin-top: -15px;
+     margin-bottom: -15px;
+}
+
+.logo-text {
+  font-family: var(--inter);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--light);
+  text-decoration: none;
+  letter-spacing: 1px;
 }
 
 .nav-link {
@@ -952,16 +972,47 @@ html {
 
 @media (max-width: 750px) {
 
+    .header-content {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 40px;
+    }
+
     .header .container {
         padding-left: 0;
         padding-right: 0;
     }
 
     .logo {
-        font-size: 1.8rem;
-    }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin: 0;
+        gap: 0;
+         
+        }
+
+        .logo-icon {
+            height: 4rem;
+            width: auto;
+            
+        }
+
+        .logo-text {
+            line-height: 1;
+            font-size: 2rem;
+            font-weight: 600;
+            display: block;
+        }
 
 .burger-btn {
+        position: absolute;
+        right: 1rem;
         display: flex; /* Показываем кнопку */
     }
 
@@ -1021,6 +1072,10 @@ html {
 
 @media (max-width: 600px) {
 
+    .burger-btn {
+        right: 0;
+    }
+
 .section-title {
     font-size: 2.6rem;
     margin-bottom: 3rem;
@@ -1029,8 +1084,6 @@ html {
 .header {
     padding: 1rem;
 }
-
-
 
     .nav-link {
         font-size: 1.5rem;
@@ -1041,10 +1094,6 @@ html {
         margin-left: 0;
     }
 
-    .header-content {
-        justify-content: space-between;
-        
-    }
 
     .section-portfolio   {
         margin-top: 5rem;
@@ -1087,13 +1136,34 @@ html {
 
 @media (max-width: 500px) {
 
-.logo {
-    font-size: 1.8rem;
-}
+    .header-content {
+        min-height: 20px;
+    }
+
+    .logo-icon {
+        height: 3rem;
+        width: auto;
+        margin-right: -15px;
+        transform: translateY(5px);
+         margin-top: -10px;
+         margin-bottom: -10px;
+    }
+
+   .logo-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+   }
+
+   .section-header {
+     padding-top: 8vh;
+     margin-top:0rem;
+     text-align: center;
+    }
 
     .section-title {
-        font-size: 2.4rem;
-        margin-bottom: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        line-height: 1.2;
     }
 
      .tag-item {
