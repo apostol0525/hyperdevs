@@ -15,9 +15,14 @@
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="icon/ui-logo.svg?v=2" type="image/svg+xml">
     <title>HyperDev — Разработка сайтов и SEO продвижение</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+
 </head>
 
 <body>
+
+ <div id="vanta-canvas"></div>
 
     <header class="header">
 
@@ -56,7 +61,7 @@
                         class="section-title-color"><span id="dynamic-word">CSS</span></span>/<span
                         class="section-title-color">JavaScript</span></h1>
                 <div class="section-text">
-                    <p>Создаем чистые, адаптивные, и быстрые сайты<br> для вашего бизнеса</p>
+                    <p>Создаю чистые, адаптивные, и быстрые сайты<br> для вашего бизнеса</p>
                 </div>
                 <a href="https://t.me/hyperdevss" class="button-title" type="button" target="_blank">
                     <img class="button-icon" src="icon/Path.svg" alt="telegramm">
@@ -220,7 +225,7 @@
                 <div class="cta-ellipse" id="emitter"></div>
                 <div class="cta-ellipse-2"></div>
                 <h2 class="section-title-ellipse">Готовы обсудить проект?</h2>
-                <p class="section-text-row">Напишите нам</p>
+                <p class="section-text-row">Напишите мне</p>
                 <a href="https://t.me/hyperdevss" class="button-title" target="_blank">
                     <img class="button-icon" src="icon/Path.svg" alt="telegram">
                     <span>Написать в Telegram</span>
@@ -237,6 +242,24 @@
     </footer>
 
     <script src="plasma.js"></script>
+
+   <script>
+VANTA.FOG({
+  el: "#vanta-canvas", // Тот же ID, что мы создали в HTML
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  highlightColor: 0x2f80ed, // Твой синий
+  midtoneColor: 0x1a5fb4,
+  lowlightColor: 0x131313,
+  baseColor: 0x131313,
+  blurFactor: 0.6,
+  speed: 1.5,
+  zoom: 1.00
+})
+</script>
 </body>
 
 </html>
