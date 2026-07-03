@@ -44,6 +44,7 @@
                 <nav class="nav" id="nav-menu">
                     <ul class="nav-list">
                         <li><a class="nav-link" href="#portfolio">Работы</a></li>
+                        <li><a class="nav-link" href="#services">Услуги</a></li>
                         <li><a class="nav-link" href="#skills">Навыки</a></li>
                         <li><a class="nav-link" href="#contacts">Контакты</a></li>
                     </ul>
@@ -54,10 +55,11 @@
 
     </header>
 
-    <main>
+    <main class="blur-layer" id="blur-layer">
         <section class="section">
             <div class="container">
                 <div class="section-header">
+                    <span class="hero-badge"><span class="dot-live"></span>Web Studio · Разработка сайтов</span>
                     <h1 class="section-title">Cайты на чистом<br><span class="section-title-color">HTML</span>/<span
                             class="section-title-color"><span id="dynamic-word">CSS</span></span>/<span
                             class="section-title-color">JavaScript</span></h1>
@@ -68,6 +70,25 @@
                         <img class="button-icon" src="icon/Path.svg" alt="telegramm">
                         Обсудить Проект
                     </a>
+
+                    <div class="stats-strip">
+                        <div class="stat-card">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Проектов сдано</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Адаптивность</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">0.9s</span>
+                            <span class="stat-label">Скорость загрузки</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">На связи</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -163,6 +184,35 @@
             </div>
         </section>
 
+        <!-- Секция Услуги -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-services">
+                    <h3 class="section-name">Что я делаю</h3>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">&lt;/&gt;</div>
+                            <h4 class="service-title">Лендинги</h4>
+                            <p class="service-text">Продающие одностраничники с акцентом на конверсию, скорость и
+                                кристально чистый код.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">▤</div>
+                            <h4 class="service-title">Корпоративные сайты</h4>
+                            <p class="service-text">Многостраничные сайты со сложной структурой, удобной навигацией и
+                                адаптивом под любые устройства.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">↑</div>
+                            <h4 class="service-title">SEO и скорость</h4>
+                            <p class="service-text">Оптимизация под поисковые системы и Core Web Vitals, чтобы сайт
+                                находили и он мгновенно грузился.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Секция Навыки -->
 
         <section class="section" id="skills">
@@ -216,15 +266,10 @@
             </div>
         </section>
 
-        <div id="plasma-world">
-            <!-- Источник плазмы -->
-            <div class="emitter-circle" id="emitter"></div>
-        </div>
-
         <section class="section" id="contacts">
             <div class="container">
                 <div class="cta-block">
-                    <div class="cta-ellipse" id="emitter"></div>
+                    <div class="cta-ellipse"></div>
                     <div class="cta-ellipse-2"></div>
                     <h2 class="section-title-ellipse">Готовы обсудить проект?</h2>
                     <p class="section-text-row">Напишите мне</p>
@@ -240,7 +285,7 @@
     <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">© 2026 WebCraft. Все права защищены</p>
+            <p class="footer-text">© 2026 HyperDev — Web Studio. Все права защищены</p>
         </div>
     </footer>
 
