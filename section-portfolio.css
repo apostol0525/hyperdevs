@@ -1,0 +1,179 @@
+
+
+
+
+
+
+.section-name {
+    font-size: calc(var(--index) * 3);
+    font-size: 6rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: fit-content(550px) fit-content(550px);
+    column-gap: 7rem;
+    row-gap: 5rem;
+    align-items: start;
+}
+
+.card-block {
+    width: 100%;
+    max-width: 550px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border-radius: 18px;
+}
+
+
+
+.glass-shutter {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 60%;
+
+    background: rgba(15, 20, 15, 0.35);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    backdrop-filter: blur(18px) saturate(160%);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 18px 18px 0 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 22px;
+    box-sizing: border-box;
+
+    transform: translateY(calc(100% - 65px));
+    transition: transform .45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-block:hover .glass-shutter {
+    transform: translateY(0);
+}
+
+.glass-shutter h4 {
+    color: var(--white);
+    font-size: calc(var(--index) * 1);
+    height: 45px;
+    display: flex;
+    align-items: center;
+
+}
+
+.project-desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: calc(var(--index) * 0.7);
+    line-height: 1.2;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
+}
+
+.card-block:hover .project-desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.project-btn {
+    margin-top: auto;
+    align-self: flex-start;
+    color: var(--dark);
+    border: none;
+    padding: 10px 20px;
+    font-size: calc(var(--index) * 0.6);
+    font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s;
+
+    outline: none;
+    background: var(--blue);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 40px;
+}
+
+.card-block:hover .project-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.project-btn:before {
+    content: '';
+    background: linear-gradient(45deg, #0819af, #0a2b86, #080594, #1b38dd, #0c207a, #08147c, #0932b8, #04167c, #08126e);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 40px;
+}
+
+.project-btn:active {
+    color: #000
+}
+
+.project-btn:active:after {
+    background: transparent;
+}
+
+.project-btn:hover:before {
+    opacity: 1;
+}
+
+.project-btn:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    left: 0;
+    top: 0;
+    border-radius: 40px;
+}
+
+.card-block img {
+    width: 100%;
+    /* картинка занимает всю ширину своей колонки */
+    display: block;
+    border-radius: 30px;
+    /* скругляем углы */
+}
+
+
+
+.card-tall img {
+    height: 450px;
+    /* вторая карточка выше первой — просто задаём больше высоты */
+    object-fit: cover;
+    /* картинка обрежется красиво, без искажений */
+    object-position: center;
+}
+
+.portfolio-text {
+    align-self: center;
+    /* именно этот текстовый блок центрируем по вертикали внутри своей строки */
+    font-size: calc(var(--index) * 2.5);
+    margin-bottom: 8rem;
+}
+
+.placeholder-card {
+    transform: translateY(-80px);
+}

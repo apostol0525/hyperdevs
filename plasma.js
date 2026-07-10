@@ -1,24 +1,61 @@
-const wordElement = document.getElementById("dynamic-word");
-// Список слов, которые будут меняться
-const words = ["CSS", "SCSS", "SASS"]; 
-let currentIndex = 0;
 
-function changeWord() {
-    // 1. Сначала добавляем класс скрытия
-    wordElement.classList.add("word-hidden");
+const container = document.querySelector('.about-flow');
+const path = document.querySelector('.connecting-line path');
+const maxOffset = 1850;
 
-    // 2. Ждем 400мс (время анимации CSS), меняем текст и показываем обратно
-    setTimeout(() => {
-        currentIndex = (currentIndex + 1) % words.length;
-        wordElement.textContent = words[currentIndex];
-        
-        // 3. Убираем класс скрытия
-        wordElement.classList.remove("word-hidden");
-    }, 400);
+const contactsContainer = document.querySelector('.contacts-grid');
+const divider = document.querySelector('.contacts-divider');
+
+let ticking = false 
+
+  function updateLine() {
+  if (!container || !path) return;
+
+  const rect = container.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+  progress = Math.max(0, Math.min(1, progress));
+
+  path.style.strokeDashoffset = maxOffset * (1 - progress);
 }
 
-// Запускаем цикл смены каждые 3 секунды
-setInterval(changeWord, 3000);
+if (contactsContainer && divider) {
+    const cRect = contactsContainer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    let cProgress = (windowHeight - cRect.top) / (windowHeight + cRect.height);
+
+    let finalProgress = cProgress * 1.6;
+
+    finalProgress = Math.max(0, Math.min(1, finalProgress));
+
+    divider.style.transform = `scaleY(${finalProgress})`
+}
+
+window.addEventListener('scroll', () => {
+    
+
+if (!ticking) {
+        window.requestAnimationFrame(() =>{
+            updateLine();
+            ticking = false;
+        })
+        ticking = true; 
+    }
+    updateLine();
+});
+
+const lines = document.querySelectorAll('.title-line');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add('draw');
+  });
+}, { threshold: 0.5 });
+
+lines.forEach((line) => observer.observe(line));
+
+
 
 
 const burgerBtn = document.getElementById('burger-btn');

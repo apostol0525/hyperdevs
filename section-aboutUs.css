@@ -1,0 +1,57 @@
+.about-flow {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 12rem;
+  position: relative;
+}
+
+.flow-block {
+ max-width: 700px; /* Ограничиваем ширину текста как на макете */
+  line-height: 1.5;
+  z-index: 2; 
+}
+
+.hight-text {
+  margin-right: 6rem;
+  font-size: calc(var(--index) * 1.2);
+}
+
+
+.low-text {
+    margin-top: 3rem;
+  margin-left: 3rem;
+  font-size: calc(var(--index) * 1.2);
+}
+
+
+
+
+
+.connecting-line path {
+  fill: none; /* Убираем заливку */
+  stroke: rgb(255, 255, 255); /* Цвет линии */
+  stroke-width: 2px; /* Толщина */
+
+  stroke-dasharray: 1850;
+  stroke-dashoffset: 1850;
+
+}
+
+
+
+.connecting-line{
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  width: 90%;   /* Линия занимает всю ширину контейнера (800px) */
+  height: 600px;  /* Высота теперь адаптивная и зависит от top/bottom */
+  pointer-events: none;
+  z-index: 1;
+}

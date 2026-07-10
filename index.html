@@ -9,31 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Anta&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="icon/ui-logo.svg?v=2" type="image/svg+xml">
     <title>HyperDev — Разработка сайтов и SEO продвижение</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
 
 </head>
 
 <body>
 
 
-    <div id="vanta-canvas"></div>
+
 
     <header class="header">
 
         <div class="container">
             <div class="header-content">
-
-                <a class="logo" href="#">
-                    <img class="logo-icon" src="icon/ui-logo.svg">
-                    <span class="logo-text">yper<span>Dev</span></span>
-                </a>
 
                 <button class="burger-btn" id="burger-btn" aria-label="Открыть меню">
                     <span></span>
@@ -42,11 +37,20 @@
                 </button>
 
                 <nav class="nav" id="nav-menu">
-                    <ul class="nav-list">
-                        <li><a class="nav-link" href="#portfolio">Работы</a></li>
-                        <li><a class="nav-link" href="#skills">Навыки</a></li>
-                        <li><a class="nav-link" href="#contacts">Контакты</a></li>
-                    </ul>
+                    <div class="nav-list">
+                        <div class="nav-link-container"><a class="nav-link" href="#portfolio">Portfolio</a></div>
+                        <div class="nav-link-container"><a class="nav-link" href="#services">Services</a></div>
+                        <div class="nav-link-container"><a class="nav-link" href="#About Us">About Us</a></div>
+                        <div class="nav-link-container"><a class="nav-link" href="#contacts">Contacts</a></div>
+
+
+                    </div>
+                    <div class="nav-right">
+                        <div class="nav-link-container nav-contact"><a class="nav-link contact" href="#">Let's talk</a>
+                        </div>
+                        <div class="nav-link-container"><a class="nav-link">EN</a></div>
+
+                    </div>
                 </nav>
 
             </div>
@@ -55,109 +59,95 @@
     </header>
 
     <main>
-        <section class="section">
+        <section class="section-1">
             <div class="container">
+
                 <div class="section-header">
-                    <h1 class="section-title">Cайты на чистом<br><span class="section-title-color">HTML</span>/<span
-                            class="section-title-color"><span id="dynamic-word">CSS</span></span>/<span
-                            class="section-title-color">JavaScript</span></h1>
-                    <div class="section-text">
-                        <p>Создаю чистые, адаптивные, и быстрые сайты<br> для вашего бизнеса</p>
+                    <img class="art-img" src="img/85.png">
+                    <img src="img/Vector-glass.svg">
+                    <div class="section-header-text">
+                        <h1 class="section-title">yper<span>dev</span></h1>
+                        <p class="section-text">Web Design & Development</p>
                     </div>
-                    <a href="https://t.me/hyperdevss" class="button-title" type="button" target="_blank">
-                        <img class="button-icon" src="icon/Path.svg" alt="telegramm">
-                        Обсудить Проект
-                    </a>
+
+                </div>
+                <div class="flex-desc">
+                    <div class="glass-desc">
+                        <div>
+                            <p>See? It's live.
+                                From Figma to a working site — design and code, done right</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="portfolio">
+        <section class="section-2" id="portfolio">
             <div class="container">
-                <div class="section-portfolio">
-                    <h3 class="section-name">Последние Проекты</h3>
+                <div class="main-title">
+                    <div class="section-line line-right">
+                        <svg class="title-line" viewBox="0 0 450 10" preserveAspectRatio="none">
+                            <path d="M 0 5 L 450 5" vector-effect="non-scaling-stroke" />
+                        </svg>
+                        <h3 class="section-name">Portfolio</h3>
+                    </div>
 
-                    <div class="card">
-                        <!-- КАРТОЧКА 1 (4 фото) -->
-                        <div class="card-item animated-border">
-                            <div class="card-slider">
-                                <div class="slider-track slider-4-photos">
-                                    <img class="card-img slide" src="img/goslide-img/goslide-1.png" alt="Скриншот 1">
-                                    <img class="card-img slide" src="img/goslide-img/goslide-2.png" alt="Скриншот 2">
-                                    <img class="card-img slide" src="img/goslide-img/goslide-3.png" alt="Скриншот 3">
-                                    <img class="card-img slide" src="img/goslide-img/goslide-4.png" alt="Скриншот 4">
-                                </div>
-                                <div class="slider-dots dots-4">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-name">Landing page PC mouse</h4>
-                                <p class="card-text">Лендинг для игровой мышки серии Razer DeathAdder V3 Pro. Акцент на
-                                    технических характеристиках, высокая скорость загрузки и
-                                    полная адаптивность.</p>
-                                <div class="card-footer">HTML CSS JS</div>
+
+                    <div class="card-grid">
+
+                        <div class="card-block">
+                            <img src="img/Снимок экрана 2026-06-30 200801.png" alt="Dog Weight Control">
+                            <div class="glass-shutter">
+                                <h4>Dog Weight Control</h4>
+                                <p class="project-desc">A dog food calculator that automatically calculates portion
+                                    sizes and selects food based on your pet's weight and activity level.</p>
+                                <button class="project-btn">Go to →</button>
                             </div>
                         </div>
 
-                        <!-- КАРТОЧКА 2 (MoGo - 5 фото) -->
-                        <div class="card-item animated-border">
-                            <div class="card-slider">
-                                <div class="slider-track slider-5-photos">
-                                    <img class="card-img slide" src="img/to-mogo/to-mogo-1.png" alt="Скриншот 1">
-                                    <img class="card-img slide" src="img/to-mogo/to-mogo-2.png" alt="Скриншот 2">
-                                    <img class="card-img slide" src="img/to-mogo/to-mogo-3.png" alt="Скриншот 3">
-                                    <img class="card-img slide" src="img/to-mogo/to-mogo-4.png" alt="Скриншот 4">
-                                    <img class="card-img slide" src="img/to-mogo/to-mogo-5.png" alt="Скриншот 5">
-                                </div>
-                                <div class="slider-dots dots-5">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-name">Digital Studio Landing</h4>
-                                <p class="card-text">Многостраничный корпоративный сайт для креативной студии.
-                                    Реализована
-                                    сложная сетка, адаптивное меню и плавная навигация.
-                                </p>
-                                <div class="card-footer">HTML CSS JS</div>
+
+
+                        <h3 class="portfolio-text">Projects made with heart</h3>
+
+
+                        <div class="card-block card-tall">
+                            <img src="img/Снимок экрана 2026-06-30 200801.png" alt="Dana Voss Fitness">
+                            <div class="glass-shutter">
+                                <h4>Dana Voss Fitness</h4>
+                                <p class="project-desc">A personal trainer landing page featuring a custom heart rate
+                                    animation and a form for signing up for a trial workout.</p>
+                                <button class="project-btn">Go to →</button>
                             </div>
                         </div>
 
-                        <!-- КАРТОЧКА 3 (4 фото) -->
-                        <div class="card-item animated-border">
-                            <div class="card-slider">
-                                <div class="slider-track slider-4-photos">
-                                    <img class="card-img slide" src="img/design-project/design-project-1.png"
-                                        alt="Скриншот 1">
-                                    <img class="card-img slide" src="img/design-project/design-project-2.png"
-                                        alt="Скриншот 2">
-                                    <img class="card-img slide" src="img/design-project/design-project-3.png"
-                                        alt="Скриншот 3">
-                                    <img class="card-img slide" src="img/design-project/design-project-4.png"
-                                        alt="Скриншот 4">
-                                </div>
-                                <div class="slider-dots dots-4">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="card-name">Architecture Design Studio</h4>
-                                <p class="card-text">Минималистичный лендинг для студии дизайна интерьеров. Акцент на
-                                    типографике, высококачественных изображениях и чистоте кода.</p>
-                                <div class="card-footer">HTML CSS JS</div>
+
+
+
+
+                        <div class="card-block card-tall placeholder-card">
+                            <img src="img/Снимок экрана 2026-07-05 154139.png" alt="Türkiye Tour Landing">
+                            <div class="glass-shutter">
+                                <h4>Türkiye Tour Landing</h4>
+                                <p class="project-desc">A landing page for a tour of Turkey with a route timeline and
+                                    the Nazar as
+                                    a brand element.</p>
+                                <button class="project-btn">Go to →</button>
                             </div>
                         </div>
+
+                        <h3 class="portfolio-text">and a touch of inspiration</h3>
+
+
+                        <div class="card-block placeholder-card">
+                            <img src="img/Снимок экрана 2026-06-30 200801.png" alt="Dog Weight Control">
+                            <div class="glass-shutter">
+                                <h4>Dog Weight Control</h4>
+                                <p class="project-desc">A dog food calculator that automatically calculates portion
+                                    sizes and selects food based on your pet's weight and activity level.</p>
+                                <button class="project-btn">Go to →</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -167,71 +157,100 @@
 
         <section class="section" id="skills">
             <div class="container">
-                <div class="section-skills">
-                    <h3 class="section-name">Стек Технологий</h3>
-                    <div class="skills-tags">
-                        <div class="tags-row">
-                            <span class="tag-item animated-border">SCSS</span>
-                            <span class="tag-item animated-border">HTML</span>
-                            <span class="tag-item animated-border">CSS</span>
-                            <span class="tag-item animated-border">FIGMA</span>
-                            <span class="tag-item animated-border">JAVASCRIPT</span>
-                        </div>
-                        <div class="tags-row">
+                <div class="main-title">
+                    <div class="section-line line-left">
+                        <h3 class="section-name">Services</h3>
+                        <svg class="title-line" viewBox="0 0 450 10" preserveAspectRatio="none">
+                            <path d="M 0 5 L 450 5" vector-effect="non-scaling-stroke" />
+                        </svg>
+                    </div>
+                    <div class="grid-text">
 
-                        </div>
+                        <h4>Design</h4>
+                        <p>From structure and logic to the final visual style tailored to your brand.</p>
+
+                        <p>Whether I use Webflow or custom code for layout—I choose the approach based on the project’s
+                            requirements and budget.</p>
+                        <h4>Development</h4>
+
+                        <h4> Launch </h4>
+                        <p>Launching a website, setting up a domain, and optimizing for SEO in the early stages</p>
+
+                        <p>Small fixes, content updates, and quick answers when something needs attention after the site
+                            goes live.</p>
+                        <h4>Support</h4>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Секция Процесс -->
+
         <section class="section">
             <div class="container">
-                <div class="section-process">
-                    <h3 class="section-name">Как мы будем работать</h3>
-                    <div class="process-grid">
-                        <div class="process-item animated-border">
-                            <span class="process-number">1</span>
-                            <h4 class="process-title">Обсуждение</h4>
-                            <p class="process-text">Изучаю ваш макет, оцениваю сроки и стоимость</p>
-                        </div>
-                        <div class="process-item animated-border">
-                            <span class="process-number">2</span>
-                            <h4 class="process-title">Верстка</h4>
-                            <p class="process-text">Пишу чистый, семантический код по стандартам BEM</p>
-                        </div>
-                        <div class="process-item animated-border">
-                            <span class="process-number">3</span>
-                            <h4 class="process-title">Адаптив</h4>
-                            <p class="process-text">Делаю так, чтобы сайт идеально смотрелся на всех устройствах</p>
-                        </div>
-                        <div class="process-item animated-border">
-                            <span class="process-number">4</span>
-                            <h4 class="process-title">Запуск</h4>
-                            <p class="process-text">Проверяю код валидатором, загружаю сайт на хостинг</p>
-                        </div>
+                <div class="section-line line-right">
+                    <svg class="title-line" viewBox="0 0 450 10" preserveAspectRatio="none">
+                        <path d="M 0 5 L 450 5" vector-effect="non-scaling-stroke" />
+                    </svg>
+                    <h3 class="section-name">About Us</h3>
+                </div>
+                <div class="about-flow">
+                    <div class="hight-text flow-block">
+                        <p>I design and build your website myself — using Webflow or raw code HTML, CSS, JavaScript,
+                            depending on what the project actually needs and what fits your budget.</p>
                     </div>
+
+                    <svg class="connecting-line" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M 100 0 L 100 50 L 0 50 L 0 100" fill="none" stroke="#555555" stroke-width="2"
+                            vector-effect="non-scaling-stroke" />
+                    </svg>
+
+                    <div class="low-text flow-block">
+                        <p>100% — Bespoke design, no templates</p>
+                        <p>1 — A single person behind both the design and the build</p>
+                        <p>Fixed — Price agreed before work begins, no surprises</p>
+                    </div>
+
+
+
                 </div>
             </div>
         </section>
 
-        <div id="plasma-world">
-            <!-- Источник плазмы -->
-            <div class="emitter-circle" id="emitter"></div>
-        </div>
 
-        <section class="section" id="contacts">
+
+        <section class="section-contacts" id="contacts">
             <div class="container">
-                <div class="cta-block">
-                    <div class="cta-ellipse" id="emitter"></div>
-                    <div class="cta-ellipse-2"></div>
-                    <h2 class="section-title-ellipse">Готовы обсудить проект?</h2>
-                    <p class="section-text-row">Напишите мне</p>
-                    <a href="https://t.me/hyperdevss" class="button-title" target="_blank">
-                        <img class="button-icon" src="icon/Path.svg" alt="telegram">
-                        <span>Написать в Telegram</span>
-                    </a>
+                <div class="section-line line-left">
+                    <h3 class="section-name">Contacts</h3>
+                    <svg class="title-line" viewBox="0 0 450 10" preserveAspectRatio="none">
+                        <path d="M 0 5 L 450 5" vector-effect="non-scaling-stroke" />
+                    </svg>
+                </div>
+                <div class="contacts-grid">
+                    <div class="content">
+                        <p>When you're ready, get in touch.Tell me about your project — I'll get back to you within 24
+                            hours.</p>
+                    </div>
+
+                    <div class="contacts-divider"></div>
+
+                    <div class="media">
+
+                        <div class="social-link">
+                            <img src="icon/free-icon-telegram-739260 1.svg" alt="telegram-icon">
+                            <a src="">Telegram</a>
+                        </div>
+                        <div class="social-link">
+                            <img src="icon/free-icon-application-15069851 1.svg" alt="instagram-icon">
+                            <a src="">Instagram</a>
+                        </div>
+                        <div class="social-link">
+                            <img src="icon/gmail-white.svg" alt="gmail-icon">
+                            <a src="">Gmail</a>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
@@ -240,29 +259,17 @@
     <!-- Футер -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">© 2026 WebCraft. Все права защищены</p>
-        </div>
+            <div class="footer-content">
+                <a href="#">Portfolio</a>
+                <a href="#">Services</a>
+                <a href="#">About Us</a>
+                <a href="#">Contacts</a>
+            </div>
+            <p class="footer-text">© 2026 Hyper<span>Dev</span> All rights reserved.</p>
     </footer>
 
     <script src="plasma.js"></script>
 
-    <script>
-        VANTA.FOG({
-            el: "#vanta-canvas", // Тот же ID, что мы создали в HTML
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            highlightColor: 0x2f80ed, // синий
-            midtoneColor: 0x1a5fb4,
-            lowlightColor: 0x131313,
-            baseColor: 0x131313,
-            blurFactor: 0.6,
-            speed: 1.5,
-            zoom: 1.00
-        })
-    </script>
 </body>
 
 </html>
