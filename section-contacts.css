@@ -79,8 +79,8 @@
 }
 
 .button:hover {
-  background: rgba(20, 57, 117, 0.15);
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
 }
 
 .button:active {
