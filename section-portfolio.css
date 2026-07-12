@@ -21,9 +21,6 @@
 }
 
 
-
-
-
 .glass-shutter {
     position: absolute;
     right: 0;
@@ -147,7 +144,6 @@
 
 .card-block img {
     width: 100%;
-  
     display: block;
     border-radius: 30px;
    
@@ -206,11 +202,10 @@
 
 @media (max-width: 500px) {
     .portfolio-text  { font-size: 1.6rem; margin-bottom: 2rem; }
-    .card-tall img   { height: 250px; }
     .card-block      { border-radius: 12px; }
-    .card-block img  { border-radius: 12px; }
+    .card-block img  { border-radius: 12px; height: 300px; }
     .glass-shutter   { border-radius: 12px 12px 0 0; height: 65%; }
     .glass-shutter h4 { font-size: 1.15rem; height: 32px; }
-    .project-desc    { font-size: 0.9rem; }
+    .project-desc    { font-size: 1rem; }
     .project-btn     { font-size: 0.85rem; padding: 8px 16px; }
 }

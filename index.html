@@ -36,26 +36,28 @@
         <div class="container">
             <div class="header-content">
 
-                <button class="burger-btn" id="burger-btn" aria-label="Открыть меню">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <div class="menu-icon" id="burger-btn" aria-label="Открыть меню">
+                    <span class="menu-icon-line menu-icon-line-left"></span>
+                    <span class="menu-icon-line"></span>
+                    <span class="menu-icon-line menu-icon-line-right"></span>
+                </div>
 
                 <nav class="nav" id="nav-menu">
-                    <div class="nav-list">
-                        <div class="nav-link-container"><a class="nav-link" href="#portfolio">Portfolio</a></div>
-                        <div class="nav-link-container"><a class="nav-link" href="#services">Services</a></div>
-                        <div class="nav-link-container"><a class="nav-link" href="#About Us">About Us</a></div>
-                        <div class="nav-link-container"><a class="nav-link" href="#contacts">Contacts</a></div>
+                    <div class="nav-content">
+                        <div class="nav-list">
+                            <div class="nav-link-container"><a class="nav-link" href="#portfolio">Portfolio</a></div>
+                            <div class="nav-link-container"><a class="nav-link" href="#services">Services</a></div>
+                            <div class="nav-link-container"><a class="nav-link" href="#About Us">About Us</a></div>
+                            <div class="nav-link-container"><a class="nav-link" href="#contacts">Contacts</a></div>
 
 
-                    </div>
-                    <div class="nav-right">
-                        <div class="nav-link-container nav-contact"><a class="nav-link contact" href="#">Let's talk</a>
                         </div>
-                        <div class="nav-link-container"><a class="nav-link">EN</a></div>
-
+                        <div class="nav-right">
+                            <div class="nav-link-container nav-contact"><a class="nav-link contact" href="#">Let's
+                                    talk</a>
+                            </div>
+                            <div class="nav-link-container"><a class="nav-link">EN</a></div>
+                        </div>
                     </div>
                 </nav>
 
@@ -71,8 +73,9 @@
                 <div class="section-header">
                     <img class="art-img">
                     <div class="section-header-text">
-                        <p class="section-text hero-el" style="--i:0">Web Design & Development</p>
-                        <h1 class="section-title hero-el" style="--i:1">HYPER<span>DEV</span></h1>
+                        <p class="section-text hero-el" style="--i:0"><span class="shiny-text">Web Design &
+                                Development</span></p>
+                        <h1 class="section-title" data-split-text="chars">HYPERDEV</h1>
 
                     </div>
 
@@ -178,23 +181,21 @@
                     </div>
                     <div class="grid-text">
 
-                        <h4><span class="reveal left">Design</span></h4>
-                        <p><span class="reveal right">From structure and logic to the final visual style tailored to
-                                your brand.</span></p>
+                        <h4 class="area-design"><span class="reveal left">Design</span></h4>
+                        <p class="area-design-text"><span class="reveal right">From structure and logic to the final
+                                visual style tailored to your brand.</span></p>
 
-                        <p><span class="reveal left">Whether I use Webflow or custom code for layout—I choose the
-                                approach based on the project’s
-                                requirements and budget.</span></p>
-                        <h4><span class="reveal right">Development</span></h4>
+                        <p class="area-dev-text"><span class="reveal left">Whether I use Webflow or custom code for
+                                layout—I choose the approach based on the project's requirements and budget.</span></p>
+                        <h4 class="area-dev"><span class="reveal right">Development</span></h4>
 
-                        <h4><span class="reveal left">Launch</span></h4>
-                        <p><span class="reveal right">Launching a website, setting up a domain, and optimizing for SEO
-                                in the early stages</span></p>
+                        <h4 class="area-launch"><span class="reveal left">Launch</span></h4>
+                        <p class="area-launch-text"><span class="reveal right">Launching a website, setting up a domain,
+                                and optimizing for SEO in the early stages</span></p>
 
-                        <p><span class="reveal left">Small fixes, content updates, and quick answers when something
-                                needs attention after the site
-                                goes live.</span></p>
-                        <h4><span class="reveal right">Support</span></h4>
+                        <p class="area-support-text"><span class="reveal left">Small fixes, content updates, and quick
+                                answers when something needs attention after the site goes live.</span></p>
+                        <h4 class="area-support"><span class="reveal right">Support</span></h4>
 
                     </div>
                 </div>
@@ -280,25 +281,26 @@
                                     required></textarea>
                             </div>
                         </div>
-                        <button class="buttom" type="submit">Send</button>
+                        <button class="button" type="submit">Send</button>
                     </form>
 
-                    <!--<div class="media">
 
-                        <div class="social-link">
-                            <img src="icon/free-icon-telegram-739260 1.svg" alt="telegram-icon">
-                            <a src="">Telegram</a>
-                        </div>
-                        <div class="social-link">
-                            <img src="icon/free-icon-application-15069851 1.svg" alt="instagram-icon">
-                            <a src="">Instagram</a>
-                        </div>
-                        <div class="social-link">
-                            <img src="icon/gmail-white.svg" alt="gmail-icon">
-                            <a src="">Gmail</a>
-                        </div>
+                </div>
+                <div class="media">
 
-                    </div>-->
+                    <div class="social-link">
+
+                        <a src=""> <img src="icon/free-icon-telegram-739260 1.svg" alt="telegram-icon"></a>
+                    </div>
+                    <div class="social-link">
+
+                        <a src=""><img src="icon/free-icon-application-15069851 1.svg" alt="instagram-icon"></a>
+                    </div>
+                    <div class="social-link">
+
+                        <a src=""><img src="icon/gmail-white.svg" alt="gmail-icon"></a>
+                    </div>
+
                 </div>
             </div>
         </section>

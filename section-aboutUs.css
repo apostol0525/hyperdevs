@@ -1,9 +1,8 @@
 .about-flow {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 8rem;
-  margin: 0 auto;
   margin-top: 12rem;
   position: relative;
 }
@@ -11,7 +10,7 @@
 .flow-block {
   /* Ограничиваем ширину текста как на макете */
   line-height: 1.5;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .hight-text {
@@ -20,7 +19,14 @@
 }
 
 
+.info-about h3 {
+  font-size: 3.5rem;
+  color: var(--blue);
+}
 
+.info-about p {
+  font-size: 2rem;
+}
 
 
 .about-item {
@@ -38,19 +44,15 @@
   max-width: 350px;
 }
 
-.info-about h3 {
-  font-size: 4rem;
-  color: var(--blue);
-}
 
-.info-about p {
-  font-size: 2rem;
-}
 
 .connecting-line path {
-  fill: none; /* Убираем заливку */
-  stroke: rgb(255, 255, 255); /* Цвет линии */
-  stroke-width: 2px; /* Толщина */
+  fill: none;
+  /* Убираем заливку */
+  stroke: rgb(255, 255, 255);
+  /* Цвет линии */
+  stroke-width: 2px;
+  /* Толщина */
 
   stroke-dasharray: 1850;
   stroke-dashoffset: 1850;
@@ -59,39 +61,98 @@
 
 
 
-.connecting-line{
-  position: absolute;
-  top: 55%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
-  width: 90%;   /* Линия занимает всю ширину контейнера (800px) */
-  height: 600px;  /* Высота теперь адаптивная и зависит от top/bottom */
-  pointer-events: none;
-  z-index: 1;
+.connecting-line {
+  width: 90%;
+  
+  margin: 0 auto;
+   pointer-events: none;
+    z-index: 1;
 }
 
 
 /* ── About Us responsive ────────────────────────── */
 
 @media (max-width: 950px) {
-    .about-flow       { margin-top: 8rem; gap: 2rem; }
-    .hight-text       { font-size: 1.6rem; margin-right: 3rem; }
-    .low-text         { font-size: 1.6rem; margin-left: 1.5rem; margin-top: 2rem; }
-    .connecting-line  { height: 450px; }
+  .about-flow {
+    margin-top: 8rem;
+    gap: 2rem;
+  }
+
+  .hight-text {
+    font-size: 1.6rem;
+    
+  }
+
+  .low-text {
+    font-size: 1.6rem;
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .about-item {
+
+    gap: 2rem;
+  }
+
+  .info-about {
+
+    gap: 0.5rem;
+    width: 100%;
+
+  }
+
 }
 
 @media (max-width: 750px) {
-    .about-flow       { margin-top: 6rem; gap: 1.5rem; }
-    .hight-text       { font-size: 1.3rem; margin-right: 0; }
-    .low-text         { font-size: 1.3rem; margin-left: 0; margin-top: 1rem; }
-    .connecting-line  { height: 350px; }
+  .about-flow {
+    margin-top: 6rem;
+    gap: 1.5rem;
+  }
+
+  .hight-text {
+    font-size: 1.7rem;
+    margin-right: 0;
+  }
+
+  .low-text {
+    font-size: 1.3rem;
+    margin-left: 0;
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 500px) {
-    .about-flow       { margin-top: 4rem; gap: 1rem; }
-    .hight-text       { font-size: 1.1rem; }
-    .low-text         { font-size: 1.1rem; margin-top: 0.5rem; }
-    .flow-block       { max-width: 100%; }
-    .connecting-line  { height: 280px; width: 100%; }
+  .about-flow {
+    margin-top: 4rem;
+    gap: 3rem;
+  }
+
+  .hight-text {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+
+  .low-text {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+
+  .flow-block {
+    max-width: 100%;
+  }
+
+
+
+  .about-item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .info-about h3 {
+    font-size: 2rem;
+  }
+
+  .info-about p {
+    font-size: 1.5rem;
+  }
 }

@@ -71,19 +71,16 @@ const burgerBtn = document.getElementById('burger-btn');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-burgerBtn.addEventListener('click', () => {
-    burgerBtn.classList.toggle('active');
-    navMenu.classList.toggle('open');
-    
-    if (navMenu.classList.contains('open')) {
-        // Когда меню открыто - запрещаем ЛЮБОЙ скролл
-        document.body.style.overflow = 'hidden';
-    } else {
-        // Когда меню закрыто - ПРОСТО УДАЛЯЕМ инлайновый стиль
-        // Теперь браузер снова будет слушаться твоего CSS (где стоит overflow-x: hidden)
-        document.body.style.overflow = ''; 
-    }
-});
+const app = () => {
+  const body = document.querySelector('body');
+  const menu = document.querySelector('.menu-icon');
+
+  menu.addEventListener('click', () => {
+    body.classList.toggle('nav-active')
+  })
+}
+
+app();
 
 // Закрываем меню при клике на любую ссылку (чтобы перейти к разделу)
 navLinks.forEach(link => {
@@ -127,3 +124,42 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     }, 2000);
   }
 });
+
+function splitText(el) {
+  const text = el.textContent;
+  const type = el.dataset.splitText || 'chars'; // 'chars' или 'words'
+  el.textContent = '';
+
+  if (type === 'words') {
+    const words = text.split(' ');
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'split-char';
+      span.textContent = word + (i < words.length - 1 ? '\u00A0' : '');
+      span.style.transitionDelay = `${i * 50}ms`;
+      el.appendChild(span);
+    });
+  } else {
+    const chars = text.split('');
+    chars.forEach((char, i) => {
+      const span = document.createElement('span');
+      span.className = 'split-char';
+      span.textContent = char === ' ' ? '\u00A0' : char;
+      span.style.transitionDelay = `${i * 30}ms`;
+      el.appendChild(span);
+    });
+  }
+}
+
+document.querySelectorAll('[data-split-text]').forEach(splitText);
+
+const splitObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    const chars = entry.target.querySelectorAll('.split-char');
+    chars.forEach((char) => char.classList.add('in'));
+    splitObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+
+document.querySelectorAll('[data-split-text]').forEach((el) => splitObserver.observe(el));

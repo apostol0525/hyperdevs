@@ -1,14 +1,47 @@
-
-
-
 .grid-text {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "design      design-text"
+        "dev-text    dev"
+        "launch      launch-text"
+        "support-text support";
     margin-bottom: 12rem;
 }
 
+.area-design {
+    grid-area: design;
+}
 
-.grid-text > * {
+.area-design-text {
+    grid-area: design-text;
+}
+
+.area-dev-text {
+    grid-area: dev-text;
+}
+
+.area-dev {
+    grid-area: dev;
+}
+
+.area-launch {
+    grid-area: launch;
+}
+
+.area-launch-text {
+    grid-area: launch-text;
+}
+
+.area-support-text {
+    grid-area: support-text;
+}
+
+.area-support {
+    grid-area: support;
+}
+
+.grid-text>* {
     padding: 3rem 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.8);
     display: flex;
@@ -16,9 +49,11 @@
     justify-content: center;
 }
 
-.grid-text > *:nth-child(odd) {
-      border-right: 1px solid rgba(255, 255, 255, 0.4);
-      overflow: hidden;
+.area-design,
+.area-dev-text,
+.area-launch,
+.area-support-text {
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .grid-text h4 {
@@ -34,7 +69,7 @@
     margin: 0;
 }
 
-.grid-text > *:nth-last-child(-n+2) {
+.grid-text>*:nth-last-child(-n+2) {
     border-bottom: none;
 }
 
@@ -42,32 +77,88 @@
 /* ── Services responsive ────────────────────────── */
 
 @media (max-width: 1100px) {
-    .grid-text h4 { font-size: 3rem; }
-    .grid-text p  { font-size: 1.8rem; }
+    .grid-text h4 {
+        font-size: 3rem;
+    }
+
+    .grid-text p {
+        font-size: 1.8rem;
+    }
 }
 
 @media (max-width: 950px) {
     .grid-text {
-        grid-template-columns: 1fr;
         margin-bottom: 8rem;
     }
-    .grid-text h4 { font-size: 2.5rem; }
-    .grid-text p  { font-size: 1.5rem; }
-    .grid-text > *:nth-child(odd) { border-right: none; }
-    .grid-text > * { border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
-    .grid-text > *:last-child { border-bottom: none; }
+
+    .grid-text h4 {
+        font-size: 2.5rem;
+    }
+
+    .grid-text p {
+        font-size: 1.5rem;
+    }
+
+   
+
+    .grid-text>* {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .grid-text>*:last-child {
+        border-bottom: none;
+    }
 }
 
 @media (max-width: 750px) {
-    .grid-text     { margin-bottom: 6rem; }
-    .grid-text h4  { font-size: 2rem; }
-    .grid-text p   { font-size: 1.2rem; }
-    .grid-text > * { padding: 2rem 1rem; }
+    .grid-text {
+        margin-bottom: 6rem;
+       grid-template-columns: 1fr;
+       grid-template-areas: 
+         "design"
+      "design-text"
+      "dev"
+      "dev-text"
+      "launch"
+      "launch-text"
+      "support"
+      "support-text";
+    }
+
+     .grid-text>*:nth-child(odd) {
+        border-right: none;
+    }
+
+    
+
+    .grid-text h4 {
+        font-size: 3rem;
+    }
+
+    .grid-text p {
+        font-size: 2rem;
+    }
+
+    .grid-text>* {
+        padding: 2rem 1rem;
+    }
 }
 
 @media (max-width: 500px) {
-    .grid-text     { margin-bottom: 4rem; }
-    .grid-text h4  { font-size: 1.6rem; }
-    .grid-text p   { font-size: 1rem; }
-    .grid-text > * { padding: 1.5rem 0.5rem; }
+
+    .grid-text {
+        margin-bottom: 4rem;
+    }
+
+    .grid-text h4 {
+        font-size: 1.8rem;
+    }
+
+    .grid-text p {
+        font-size: 1.5rem;
+    }
+
+    .grid-text>* {
+        padding: 1.5rem 0.5rem;
+    }
 }
