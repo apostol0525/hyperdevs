@@ -17,7 +17,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Site Form <onboarding@resend.dev>',
+        from: 'hyperdev message <onboarding@resend.dev>',
         to: 'borisstejman35@gmail.com',
         reply_to: email,
         subject: `Новая заявка от ${name}`,
