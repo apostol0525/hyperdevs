@@ -1,20 +1,13 @@
 
 
 
-
-
-
-.section-name {
-    font-size: calc(var(--index) * 3);
-    font-size: 6rem;
-}
-
 .card-grid {
     display: grid;
-    grid-template-columns: fit-content(550px) fit-content(550px);
-    column-gap: 7rem;
-    row-gap: 5rem;
-    align-items: start;
+    grid-template-columns: fit-content(500px) fit-content(500px);
+    column-gap: 5rem;
+    row-gap: 3rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-block {
@@ -26,6 +19,8 @@
     background-position: center;
     border-radius: 18px;
 }
+
+
 
 
 
@@ -58,7 +53,7 @@
 
 .glass-shutter h4 {
     color: var(--white);
-    font-size: calc(var(--index) * 1);
+    font-size: 1.8rem;
     height: 45px;
     display: flex;
     align-items: center;
@@ -67,7 +62,8 @@
 
 .project-desc {
     color: rgba(255, 255, 255, 0.8);
-    font-size: calc(var(--index) * 0.7);
+    font-size: 1.3rem;
+    font-family: inter, sans-serif;
     line-height: 1.2;
     margin-top: 10px;
     opacity: 0;
@@ -87,7 +83,7 @@
     color: var(--dark);
     border: none;
     padding: 10px 20px;
-    font-size: calc(var(--index) * 0.6);
+    font-size: 1rem;
     font-weight: 600;
 
     opacity: 0;
@@ -160,7 +156,7 @@
 
 
 .card-tall img {
-    height: 450px;
+    height: 400px;
     /* вторая карточка выше первой — просто задаём больше высоты */
     object-fit: cover;
     /* картинка обрежется красиво, без искажений */
@@ -168,12 +164,55 @@
 }
 
 .portfolio-text {
-    align-self: center;
-    /* именно этот текстовый блок центрируем по вертикали внутри своей строки */
-    font-size: calc(var(--index) * 2.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
     margin-bottom: 8rem;
 }
 
 .placeholder-card {
     transform: translateY(-80px);
+}
+
+
+/* ── Portfolio responsive ───────────────────────── */
+
+@media (max-width: 1100px) {
+    .card-grid       { column-gap: 3rem; }
+    .portfolio-text  { font-size: 3rem; margin-bottom: 5rem; }
+    .glass-shutter h4 { font-size: 1.5rem; }
+    .project-desc    { font-size: 1.1rem; }
+}
+
+@media (max-width: 950px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+        row-gap: 2rem;
+    }
+    .card-block       { max-width: 100%; }
+    .card-tall img    { height: 350px; }
+    .portfolio-text   { font-size: 2.4rem; margin-bottom: 4rem; }
+    .placeholder-card { transform: translateY(0); }
+}
+
+@media (max-width: 750px) {
+    .portfolio-text  { font-size: 2rem; margin-bottom: 3rem; }
+    .card-tall img   { height: 300px; }
+    .glass-shutter   { padding: 15px 18px; }
+    .glass-shutter h4 { font-size: 1.3rem; height: 38px; }
+    .project-desc    { font-size: 1rem; }
+}
+
+@media (max-width: 500px) {
+    .portfolio-text  { font-size: 1.6rem; margin-bottom: 2rem; }
+    .card-tall img   { height: 250px; }
+    .card-block      { border-radius: 12px; }
+    .card-block img  { border-radius: 12px; }
+    .glass-shutter   { border-radius: 12px 12px 0 0; height: 65%; }
+    .glass-shutter h4 { font-size: 1.15rem; height: 32px; }
+    .project-desc    { font-size: 0.9rem; }
+    .project-btn     { font-size: 0.85rem; padding: 8px 16px; }
 }

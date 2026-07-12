@@ -5,36 +5,46 @@ const maxOffset = 1850;
 
 const contactsContainer = document.querySelector('.contacts-grid');
 const divider = document.querySelector('.contacts-divider');
+const header = document.querySelector('.header');
+const scrollThreshold = 60;
 
 let ticking = false 
 
   function updateLine() {
-  if (!container || !path) return;
-
-  const rect = container.getBoundingClientRect();
   const windowHeight = window.innerHeight;
 
+  const rect = container.getBoundingClientRect();
   let progress = (windowHeight - rect.top) / (windowHeight + rect.height);
   progress = Math.max(0, Math.min(1, progress));
-
+  const eased = 1 - Math.pow(1 - progress, 3);
   path.style.strokeDashoffset = maxOffset * (1 - progress);
-}
 
-if (contactsContainer && divider) {
+
+  if (contactsContainer && divider) {
     const cRect = contactsContainer.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
     let cProgress = (windowHeight - cRect.top) / (windowHeight + cRect.height);
-
     let finalProgress = cProgress * 1.6;
-
     finalProgress = Math.max(0, Math.min(1, finalProgress));
 
-    divider.style.transform = `scaleY(${finalProgress})`
+    if (window.innerWidth <= 750) {
+      divider.style.transform = `scaleX(${finalProgress})`;
+    } else {
+      divider.style.transform = `scaleY(${finalProgress})`;
+    }
 }
+
+}
+
+
+
 
 window.addEventListener('scroll', () => {
     
+   if (window.scrollY > scrollThreshold) {
+        header.classList.add('header--scrolled');
+    } else {
+        header.classList.remove('header--scrolled');
+    }
 
 if (!ticking) {
         window.requestAnimationFrame(() =>{
@@ -43,20 +53,19 @@ if (!ticking) {
         })
         ticking = true; 
     }
-    updateLine();
+    
 });
 
-const lines = document.querySelectorAll('.title-line');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('draw');
+     if (!entry.isIntersecting) return;
+    const el = entry.target;
+    el.classList.add(el.classList.contains('title-line') ? 'draw' : 'in');
+    observer.unobserve(el);
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.2, rootMargin: '0px 0px -5% 0px' });
 
-lines.forEach((line) => observer.observe(line));
-
-
-
+document.querySelectorAll('.reveal, .title-line').forEach((el) => observer.observe(el));
 
 const burgerBtn = document.getElementById('burger-btn');
 const navMenu = document.getElementById('nav-menu');
@@ -86,56 +95,35 @@ navLinks.forEach(link => {
 });
 
 
-/* ============================================================
-   MOTION BLUR НА СКРОЛЛЕ
-   Размытие зависит от скорости прокрутки:
-   плавный скролл ≈ 3px, резкий/быстрый ≈ до 5px, покой → 0px
-   ============================================================ */
-(function initScrollMotionBlur() {
-    const root = document.documentElement;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
 
-    const MID_BLUR = 3;   // 3x — обычный скролл
-    const MAX_BLUR = 5;   // 5x — резкий скролл
-    const DECAY = 0.82;   // как быстро размытие спадает к нулю
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  const data = Object.fromEntries(new FormData(form));
 
-    let lastY = window.scrollY;
-    let lastT = performance.now();
-    let currentBlur = 0;
-    let ticking = false;
+  btn.disabled = true;
+  btn.textContent = 'Отправка...';
 
-    function loop() {
-        // Плавно возвращаем размытие к нулю, когда скролл останавливается
-        currentBlur *= DECAY;
-        if (currentBlur < 0.05) currentBlur = 0;
-        root.style.setProperty('--scroll-blur', currentBlur.toFixed(2) + 'px');
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
 
-        if (currentBlur > 0) {
-            requestAnimationFrame(loop);
-        } else {
-            ticking = false;
-        }
+    if (res.ok) {
+      form.reset();
+      btn.textContent = 'Отправлено ✓';
+    } else {
+      btn.textContent = 'Ошибка, попробуйте снова';
     }
-
-    window.addEventListener('scroll', () => {
-        const now = performance.now();
-        const dy = Math.abs(window.scrollY - lastY);
-        const dt = Math.max(now - lastT, 1);
-        lastY = window.scrollY;
-        lastT = now;
-
-        // Скорость в px/ms → нормируем к диапазону размытия
-        const velocity = dy / dt;                 // типично 0..5+
-        let blur = Math.min(velocity * 1.6, MAX_BLUR);
-        // Гарантируем ощутимый эффект при заметном движении
-        if (dy > 2) blur = Math.max(blur, Math.min(MID_BLUR, MAX_BLUR));
-
-        currentBlur = Math.max(currentBlur, blur);
-
-        if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(loop);
-        }
-    }, { passive: true });
-})();
+  } catch {
+    btn.textContent = 'Ошибка сети';
+  } finally {
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.textContent = 'Send';
+    }, 2000);
+  }
+});

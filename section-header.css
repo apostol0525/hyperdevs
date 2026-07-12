@@ -1,25 +1,51 @@
 
+
+
+.section-1{
+    margin-top: 15rem;
+}
+
+
 .section-1 .container {
    position: relative;
 }
 
 .section-header {
-    display: flex;
-    align-items: center;
+   
     gap: 10px;
     font-family: var(--inter);
-    margin-top: 10rem;
+    
 }
 
 .section-header-text {
-    line-height: 1.1;
+    line-height: 1.5;
     padding-bottom: 2rem;
 }
 
+.hero-el {
+    opacity: 0;
+    transform: translate3d(0,28px,0);
+    filter: blur(10px);
+    will-change: transform, opacity, filter;
+    animation: heroRise 1.6s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: calc(var(--i) * 0.9s);
+}
+
+@keyframes heroRise{
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+        filter: blur(0);
+    }
+}
+
+
+
 
 .section-title {
-    font-size: calc(var(--index) * 4); 
-    line-height: 1.1;
+    font-size: 10rem; 
+    line-height: 1;
+    letter-spacing: 1.6;
 }
 
 .section-title span {
@@ -27,9 +53,7 @@
 }
 
 .section-text {
-    font-size: clamp(1rem, 2vw, 2.5rem);
-    
-    
+    font-size: 2rem;
 }
 
 .art-img {
@@ -44,14 +68,14 @@
 
 .flex-desc {
  display: flex;
- justify-content:flex-end;
- margin-top: 12rem;
+ justify-content: flex-end;
+ margin-top: 5rem;
 }
 
 
 .glass-desc {
-  font-size: 1.5rem;
-  padding: 4rem 2.5rem;
+  font-size: 1rem;
+  padding: 2rem 2.5rem;
    width: clamp(280px, 40vw, 720px);
   background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(5px) saturate(160%);
@@ -60,9 +84,52 @@
     box-shadow: 
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         0 20px 40px rgba(0, 0, 0, 0.35);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .glass-desc p {
-   font-size: clamp(1.5rem, 3vw, 2.5rem);
+   font-size: 1.8rem;
+}
+
+
+/* ── Hero responsive ────────────────────────────── */
+
+@media (max-width: 1100px) {
+    .section-title { font-size: 8rem; }
+    .section-text  { font-size: 1.6rem; }
+    .art-img       { left: 35rem; }
+}
+
+@media (max-width: 950px) {
+    .section-1       { margin-top: 12rem; }
+    .section-title   { font-size: 6rem; }
+    .section-text    { font-size: 1.4rem; }
+    .art-img         { left: 28rem; max-width: 400px; }
+    .glass-desc      { width: clamp(250px, 50vw, 500px); }
+    .glass-desc p    { font-size: 1.4rem; }
+}
+
+@media (max-width: 750px) {
+    .section-1       { margin-top: 10rem; }
+    .section-title   { font-size: 4.5rem; }
+    .section-text    { font-size: 1.2rem; }
+    .art-img         { display: none; }
+    .flex-desc       { justify-content: center; margin-top: 3rem; }
+    .glass-desc      { width: 100%; }
+    .glass-desc p    { font-size: 1.2rem; }
+}
+
+@media (max-width: 500px) {
+    .section-1       { margin-top: 8rem; }
+    .section-title   { font-size: 3rem; }
+    .section-text    { font-size: 1rem; }
+    .section-header-text { padding-bottom: 1rem; }
+    .flex-desc       { margin-top: 2rem; }
+    .glass-desc      { padding: 1.5rem; }
+    .glass-desc p    { font-size: 1rem; }
+}
+
+@media (max-width: 380px) {
+    .section-1       { margin-top: 7rem; }
+    .section-title   { font-size: 2.4rem; }
 }

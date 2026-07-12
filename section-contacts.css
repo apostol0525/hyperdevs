@@ -8,13 +8,12 @@
     align-items: center;
     justify-content: center;
     grid-template-columns: 1.2fr auto 1fr;
-    max-width: 1200px;
-    gap: 8rem;
+    gap: 5rem;
     
 }
 
 .content p {
-    font-size: calc(var(--index) * 1.5);
+    font-size: 2.8rem;
     
 }
 
@@ -37,9 +36,8 @@
 }
 
 .social-link a {
-    font-size: calc(var(--index) * 1.5);
+    font-size: 2.5rem;
 }
-
 
 
 
@@ -51,3 +49,105 @@
     transform-origin: center;
     transform: scaleY(0);  
 }
+
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.form button[type="submit"] {
+  margin-top: 20px;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: inherit; /* тот же шрифт, что у остального текста сайта */
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.form button[type="submit"]:hover {
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
+}
+
+.form button[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+.form button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.form-item input, textarea {
+    background: #252525;
+    border: none;
+    padding: 1rem 0.5rem;
+    border-radius: 5px;
+    outline: none;
+    width: 100%;
+    resize: vertical;
+    color: #fff;
+}
+
+input:focus {
+    background: #252525;
+    color: #fff;
+}
+
+textarea {
+    height: 8rem;
+}
+
+textarea:focus {
+    color: #fff;
+}
+
+
+/* ── Contacts responsive ────────────────────────── */
+
+@media (max-width: 950px) {
+    .section-contacts { margin-top: 8rem; }
+    .contacts-grid    { gap: 3rem; }
+    .content p        { font-size: 2.2rem; }
+}
+
+@media (max-width: 750px) {
+    .section-contacts { margin-top: 6rem; }
+    .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contacts-divider {
+        width: 80%;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: center;
+    }
+    .content p        { font-size: 1.6rem; }
+}
+
+@media (max-width: 500px) {
+    .section-contacts { margin-top: 4rem; }
+    .contacts-grid    { gap: 1.5rem; }
+    .content p        { font-size: 1.2rem; }
+    .form-item input, textarea {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    textarea { height: 6rem; }
+} 

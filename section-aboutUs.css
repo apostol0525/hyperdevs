@@ -1,36 +1,51 @@
 .about-flow {
    display: flex;
    flex-direction: column;
-   align-items: center;
    justify-content: center;
-  gap: 3rem;
-  max-width: 800px;
+  gap: 8rem;
   margin: 0 auto;
   margin-top: 12rem;
   position: relative;
 }
 
 .flow-block {
- max-width: 700px; /* Ограничиваем ширину текста как на макете */
+  /* Ограничиваем ширину текста как на макете */
   line-height: 1.5;
   z-index: 2; 
 }
 
 .hight-text {
-  margin-right: 6rem;
-  font-size: calc(var(--index) * 1.2);
-}
-
-
-.low-text {
-    margin-top: 3rem;
-  margin-left: 3rem;
-  font-size: calc(var(--index) * 1.2);
+  font-size: 3rem;
+  width: 80%;
 }
 
 
 
 
+
+.about-item {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 3rem;
+}
+
+.info-about {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 350px;
+}
+
+.info-about h3 {
+  font-size: 4rem;
+  color: var(--blue);
+}
+
+.info-about p {
+  font-size: 2rem;
+}
 
 .connecting-line path {
   fill: none; /* Убираем заливку */
@@ -46,7 +61,7 @@
 
 .connecting-line{
   position: absolute;
-  top: 45%;
+  top: 55%;
   transform: translateY(-50%);
   left: 0;
   right: 0;
@@ -54,4 +69,29 @@
   height: 600px;  /* Высота теперь адаптивная и зависит от top/bottom */
   pointer-events: none;
   z-index: 1;
+}
+
+
+/* ── About Us responsive ────────────────────────── */
+
+@media (max-width: 950px) {
+    .about-flow       { margin-top: 8rem; gap: 2rem; }
+    .hight-text       { font-size: 1.6rem; margin-right: 3rem; }
+    .low-text         { font-size: 1.6rem; margin-left: 1.5rem; margin-top: 2rem; }
+    .connecting-line  { height: 450px; }
+}
+
+@media (max-width: 750px) {
+    .about-flow       { margin-top: 6rem; gap: 1.5rem; }
+    .hight-text       { font-size: 1.3rem; margin-right: 0; }
+    .low-text         { font-size: 1.3rem; margin-left: 0; margin-top: 1rem; }
+    .connecting-line  { height: 350px; }
+}
+
+@media (max-width: 500px) {
+    .about-flow       { margin-top: 4rem; gap: 1rem; }
+    .hight-text       { font-size: 1.1rem; }
+    .low-text         { font-size: 1.1rem; margin-top: 0.5rem; }
+    .flow-block       { max-width: 100%; }
+    .connecting-line  { height: 280px; width: 100%; }
 }
