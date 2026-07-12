@@ -172,5 +172,5 @@
 @media (max-width: 380px) {
     .section-1       { margin-top: 7rem; }
     .section-title   { font-size: 3.5rem; }
-    
+    .section-text    { font-size: 1.2rem; }
 }
