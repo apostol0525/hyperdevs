@@ -63,7 +63,7 @@
     
 }
 
-.form button[type="submit"] {
+.button {
   margin-top: 20px;
   padding: 14px 36px;
   background: transparent;
@@ -78,16 +78,16 @@
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
 
-.form button[type="submit"]:hover {
-  background: rgba(59, 130, 246, 0.15);
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.5);
+.button:hover {
+  background: rgba(20, 57, 117, 0.15);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
 }
 
-.form button[type="submit"]:active {
+.button:active {
   transform: scale(0.97);
 }
 
-.form button[type="submit"]:disabled {
+.button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   box-shadow: none;

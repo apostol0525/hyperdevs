@@ -147,19 +147,17 @@
 
 .card-block img {
     width: 100%;
-    /* картинка занимает всю ширину своей колонки */
+  
     display: block;
     border-radius: 30px;
-    /* скругляем углы */
+   
 }
 
 
 
 .card-tall img {
     height: 400px;
-    /* вторая карточка выше первой — просто задаём больше высоты */
     object-fit: cover;
-    /* картинка обрежется красиво, без искажений */
     object-position: center;
 }
 

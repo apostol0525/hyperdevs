@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Site Form <onboarding@resend.dev>',
-        to: 'твоя-почта@example.com',
+        to: 'borisstejman35@gmail.com',
         reply_to: email,
         subject: `Новая заявка от ${name}`,
         text: `Имя: ${name}\nEmail: ${email}\nСообщение: ${message}`,
