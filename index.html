@@ -36,14 +36,8 @@
         <div class="container">
             <div class="header-content">
 
-                <div class="menu-icon" id="burger-btn" aria-label="Открыть меню">
-                    <span class="menu-icon-line menu-icon-line-left"></span>
-                    <span class="menu-icon-line"></span>
-                    <span class="menu-icon-line menu-icon-line-right"></span>
-                </div>
-
-                <nav class="nav" id="nav-menu">
-                    <div class="nav-content">
+                <nav class="nav-desktop">
+                    <div class="nav-content-desktop">
                         <div class="nav-list">
                             <div class="nav-link-container"><a class="nav-link" href="#portfolio">Portfolio</a></div>
                             <div class="nav-link-container"><a class="nav-link" href="#services">Services</a></div>
@@ -56,8 +50,54 @@
                             <div class="nav-link-container nav-contact"><a class="nav-link contact" href="#">Let's
                                     talk</a>
                             </div>
-                            <div class="nav-link-container"><a class="nav-link">EN</a></div>
+                            <div class="lang-switch">
+                                <button class="lang-current" id="lang-toggle-desctop" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <span class="lang-code">EN</span>
+                                    <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6">
+                                        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" fill="none" />
+                                    </svg>
+                                </button>
+
+                                <ul class="lang-dropdown" id="lang-dropdown-desktop">
+                                    <li><a href="#" class="lang-option active" data-lang="en">EN</a></li>
+                                    <li><a href="#" class="lang-option" data-lang="ru">RU</a></li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
+                </nav>
+
+
+                <div class="lang-switch lang-switch-mobile">
+                    <button class="lang-current" id="lang-toggle-mobile" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-code">EN</span>
+                        <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" fill="none" />
+                        </svg>
+                    </button>
+
+                    <ul class="lang-dropdown" id="lang-dropdown-mobile">
+                        <li><a href="#" class="lang-option active" data-lang="en">EN</a></li>
+                        <li><a href="#" class="lang-option" data-lang="ru">RU</a></li>
+                    </ul>
+                </div>
+                <div class="nav-wrap">
+                    <div class="menu-icon" id="burger-btn" aria-label="Открыть меню">
+                        <span class="menu-icon-line menu-icon-line-left"></span>
+                        <span class="menu-icon-line"></span>
+                        <span class="menu-icon-line menu-icon-line-right"></span>
+                    </div>
+                </div>
+
+                <nav class="nav-mobile" id="nav-menu-mobile">
+                    <div class="nav-content-mobile">
+                        <ul class="nav-list-mobile">
+                            <li class="nav-list-item"><a href="#portfolio">Portfolio</a></li>
+                            <li class="nav-list-item"><a href="#services">Services</a></li>
+                            <li class="nav-list-item"><a href="#About Us">About Us</a></li>
+                            <li class="nav-list-item"><a href="#contacts">Contacts</a></li>
+                        </ul>
                     </div>
                 </nav>
 
@@ -286,22 +326,7 @@
 
 
                 </div>
-                <div class="media">
 
-                    <div class="social-link">
-
-                        <a src=""> <img src="icon/free-icon-telegram-739260 1.svg" alt="telegram-icon"></a>
-                    </div>
-                    <div class="social-link">
-
-                        <a src=""><img src="icon/free-icon-application-15069851 1.svg" alt="instagram-icon"></a>
-                    </div>
-                    <div class="social-link">
-
-                        <a src=""><img src="icon/gmail-white.svg" alt="gmail-icon"></a>
-                    </div>
-
-                </div>
             </div>
         </section>
     </main>
@@ -310,12 +335,26 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <a href="#">Portfolio</a>
-                <a href="#">Services</a>
-                <a href="#">About Us</a>
-                <a href="#">Contacts</a>
+                <nav class="footer-nav">
+                    <a href="#">Portfolio</a>
+                    <a href="#">Services</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contacts</a>
+                </nav>
+
+
+                <div class="media">
+                    <a src=""> <img src="icon/free-icon-telegram-739260 1.svg" alt="telegram-icon"></a>
+                    <a src=""><img src="icon/free-icon-application-15069851 1.svg" alt="instagram-icon"></a>
+                    <a src=""><img src="icon/gmail-white.svg" alt="gmail-icon"></a>
+                </div>
             </div>
-            <p class="footer-text">© 2026 Hyper<span>Dev</span> All rights reserved.</p>
+            <div class="footer-text-block">
+                <p class="footer-text">© 2026 Hyper<span>Dev</span> All rights reserved.</p>
+            </div>
+
+
+        </div>
     </footer>
 
     <script src="plasma.js"></script>

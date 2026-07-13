@@ -8,38 +8,13 @@
     justify-content: center;
     grid-template-columns: 1.2fr auto 1fr;
     gap: 5rem;
-    
+
 }
 
 .content p {
     font-size: 2.8rem;
-    
+
 }
-
-.media {
-    margin-top: 5rem;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    justify-content: flex-end;
-    
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.social-link img {
-  max-width: 50px;
-}
-
-.social-link a {
-    font-size: 2.5rem;
-}
-
-
 
 .contacts-divider {
     background: var(--blue);
@@ -47,7 +22,7 @@
     height: 300px;
     justify-self: center;
     transform-origin: center;
-    transform: scaleY(0);  
+    transform: scaleY(0);
 }
 
 
@@ -60,39 +35,40 @@
 .form-item {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .button {
-  margin-top: 20px;
-  padding: 14px 36px;
-  background: transparent;
-  border: 1px solid #3b82f6;
-  border-radius: 4px;
-  color: #ffffff;
-  font-family: inherit; /* тот же шрифт, что у остального текста сайта */
-  font-size: 15px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+    margin-top: 20px;
+    padding: 14px 36px;
+    background: transparent;
+    border: 1px solid #3b82f6;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
 }
 
 .button:hover {
-  background: rgba(59, 130, 246, 0.15);
+    background: rgba(59, 130, 246, 0.15);
 }
 
 .button:active {
-  transform: scale(0.97);
+    transform: scale(0.97);
 }
 
 .button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
-.form-item input, textarea {
+.form-item input,
+textarea {
     background: #252525;
     border: none;
     padding: 1rem 0.5rem;
@@ -120,35 +96,69 @@ textarea:focus {
 /* ── Contacts responsive ────────────────────────── */
 
 @media (max-width: 950px) {
-    .section-contacts { margin-top: 8rem; }
-    .contacts-grid    { gap: 3rem; }
-    .content p        { font-size: 2.2rem; }
-    .about-item h3 { font-size: 2.5rem;}
-    .about-item p {font-size: 1.7rem;}
+    .section-contacts {
+        margin-top: 8rem;
+    }
+
+    .contacts-grid {
+        gap: 3rem;
+    }
+
+    .content p {
+        font-size: 2.2rem;
+    }
+
+    .about-item h3 {
+        font-size: 2.5rem;
+    }
+
+    .about-item p {
+        font-size: 1.7rem;
+    }
 }
 
 @media (max-width: 750px) {
-    .section-contacts { margin-top: 6rem; }
+    .section-contacts {
+        margin-top: 6rem;
+    }
+
     .contacts-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
     .contacts-divider {
         width: 80%;
         height: 2px;
         transform: scaleX(0);
         transform-origin: center;
     }
-    .content p        { font-size: 1.6rem; }
+
+    .content p {
+        font-size: 1.6rem;
+    }
 }
 
 @media (max-width: 500px) {
-    .section-contacts { margin-top: 4rem; }
-    .contacts-grid    { gap: 1.5rem; }
-    .content p        { font-size: 1.2rem; }
-    .form-item input, textarea {
+    .section-contacts {
+        margin-top: 4rem;
+    }
+
+    .contacts-grid {
+        gap: 1.5rem;
+    }
+
+    .content p {
+        font-size: 1.7rem;
+    }
+
+    .form-item input,
+    textarea {
         padding: 0.8rem 0.5rem;
         font-size: 0.9rem;
     }
-    textarea { height: 6rem; }
-} 
+
+    textarea {
+        height: 6rem;
+    }
+}

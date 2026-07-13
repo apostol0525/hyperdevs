@@ -67,8 +67,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal, .title-line').forEach((el) => observer.observe(el));
 
-const burgerBtn = document.getElementById('burger-btn');
-const navMenu = document.getElementById('nav-menu');
+
 const navLinks = document.querySelectorAll('.nav-link');
 
 const app = () => {
@@ -77,12 +76,12 @@ const app = () => {
 
   menu.addEventListener('click', () => {
     body.classList.toggle('nav-active')
+    body.style.overflow = body.classList.contains('nav-active') ? 'hidden' : 'auto';
   })
 }
 
 app();
 
-// Закрываем меню при клике на любую ссылку (чтобы перейти к разделу)
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         burgerBtn.classList.remove('active');
@@ -163,3 +162,35 @@ const splitObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
 
 document.querySelectorAll('[data-split-text]').forEach((el) => splitObserver.observe(el));
+
+
+document.querySelectorAll('.lang-switch').forEach((switchBlock) => {
+  const toggle = switchBlock.querySelector('.lang-current');
+  const options = switchBlock.querySelectorAll('.lang-option');
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    switchBlock.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', switchBlock.classList.contains('open'));
+  });
+
+  options.forEach((option) => {
+    option.addEventListener('click', (e) => {
+      e.preventDefault();
+      options.forEach(o => o.classList.remove('active'));
+      option.classList.add('active');
+
+      const selectedLang = option.dataset.lang;
+      switchBlock.querySelector('.lang-code').textContent = selectedLang.toUpperCase();
+
+      switchBlock.classList.remove('open');
+    });
+  });
+});
+
+document.addEventListener('click', () => {
+  document.querySelectorAll('.lang-switch').forEach((switchBlock) => {
+    switchBlock.classList.remove('open');
+    switchBlock.querySelector('.lang-current').setAttribute('aria-expanded', 'false');
+  });
+});
