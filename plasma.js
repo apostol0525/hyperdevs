@@ -201,8 +201,8 @@ const translations = {
     "about-text-1": "I design and build your website myself — using Webflow or raw code HTML, CSS, JavaScript, depending on what the project actually needs and what fits your budget.",
     "about-stat-1-num": "100%",
     "about-stat-1-text": "Bespoke design, no templates",
-    "about-stat-2-num": "1",
-    "about-stat-2-text": "A single person behind both the design and the build",
+    "about-stat-2-num": "Match",
+    "about-stat-2-text": "in sync with what was designed, that's what was implemented",
     "about-stat-3-num": "Fixed",
     "about-stat-3-text": "Price agreed before work begins, no surprises",
 

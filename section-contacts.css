@@ -107,14 +107,6 @@ textarea:focus {
     .content p {
         font-size: 2.2rem;
     }
-
-    .about-item h3 {
-        font-size: 2.5rem;
-    }
-
-    .about-item p {
-        font-size: 1.7rem;
-    }
 }
 
 @media (max-width: 750px) {

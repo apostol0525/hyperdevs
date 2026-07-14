@@ -1,5 +1,5 @@
 .about-flow {
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: center;
   gap: 8rem;
@@ -48,12 +48,8 @@
 
 .connecting-line path {
   fill: none;
-  /* Убираем заливку */
-  stroke: rgb(255, 255, 255);
-  /* Цвет линии */
+  stroke: var(--blue);
   stroke-width: 2px;
-  /* Толщина */
-
   stroke-dasharray: 1850;
   stroke-dashoffset: 1850;
 
@@ -101,6 +97,14 @@
 
   }
 
+     .about-item h3 {
+        font-size: 2.5rem;
+    }
+
+    .about-item p {
+        font-size: 2rem;
+    }
+
 }
 
 @media (max-width: 750px) {
@@ -118,6 +122,12 @@
     font-size: 1.3rem;
     margin-left: 0;
     margin-top: 1rem;
+  }
+
+   .about-item {
+    flex-direction: column;
+    gap: 1rem;
+   
   }
 }
 
