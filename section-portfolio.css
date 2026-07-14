@@ -1,6 +1,3 @@
-
-
-
 .card-grid {
     display: grid;
     grid-template-columns: fit-content(500px) fit-content(500px);
@@ -146,7 +143,7 @@
     width: 100%;
     display: block;
     border-radius: 30px;
-   
+
 }
 
 
@@ -169,14 +166,23 @@
     transform: translateY(-80px);
 }
 
-
-/* ── Portfolio responsive ───────────────────────── */
-
 @media (max-width: 1100px) {
-    .card-grid       { column-gap: 3rem; }
-    .portfolio-text  { font-size: 3rem; margin-bottom: 5rem; }
-    .glass-shutter h4 { font-size: 1.5rem; }
-    .project-desc    { font-size: 1.1rem; }
+    .card-grid {
+        column-gap: 3rem;
+    }
+
+    .portfolio-text {
+        font-size: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    .glass-shutter h4 {
+        font-size: 1.5rem;
+    }
+
+    .project-desc {
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 950px) {
@@ -186,26 +192,80 @@
         margin: 0 auto;
         row-gap: 2rem;
     }
-    .card-block       { max-width: 100%; }
-    .card-tall img    { height: 350px; }
-    .portfolio-text   { font-size: 2.4rem; margin-bottom: 1rem; }
-    .placeholder-card { transform: translateY(0); }
+
+    .card-block {
+        max-width: 100%;
+    }
+
+    .card-tall img {
+        height: 350px;
+    }
+
+    .portfolio-text {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .placeholder-card {
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 750px) {
-    .portfolio-text  { font-size: 2.3rem; margin-bottom: 0rem; }
-    .card-tall img   { height: 300px; }
-    .glass-shutter   { padding: 15px 18px; }
-    .glass-shutter h4 { font-size: 1.3rem; height: 38px; }
-    .project-desc    { font-size: 1rem; }
+    .portfolio-text {
+        font-size: 2.3rem;
+        margin-bottom: 0rem;
+    }
+
+    .card-tall img {
+        height: 300px;
+    }
+
+    .glass-shutter {
+        padding: 15px 18px;
+    }
+
+    .glass-shutter h4 {
+        font-size: 1.3rem;
+        height: 38px;
+    }
+
+    .project-desc {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 500px) {
-    .portfolio-text  { font-size: 1.8rem; margin-bottom: 0rem; }
-    .card-block      { border-radius: 12px; }
-    .card-block img  { border-radius: 12px; height: 300px; }
-    .glass-shutter   { border-radius: 12px 12px 0 0; height: 65%; }
-    .glass-shutter h4 { font-size: 1.15rem; height: 32px; }
-    .project-desc    { font-size: 1rem; }
-    .project-btn     { font-size: 0.85rem; padding: 8px 16px; }
+    .portfolio-text {
+        font-size: 1.7rem;
+        margin-bottom: 0rem;
+    }
+
+    .card-block {
+        border-radius: 12px;
+    }
+
+    .card-block img {
+        border-radius: 12px;
+        height: 300px;
+    }
+
+    .glass-shutter {
+        border-radius: 12px 12px 0 0;
+        height: 65%;
+    }
+
+    .glass-shutter h4 {
+        font-size: 1.15rem;
+        height: 32px;
+    }
+
+    .project-desc {
+        font-size: 1rem;
+    }
+
+    .project-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
 }
