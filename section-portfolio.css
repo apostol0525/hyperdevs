@@ -188,12 +188,12 @@
     }
     .card-block       { max-width: 100%; }
     .card-tall img    { height: 350px; }
-    .portfolio-text   { font-size: 2.4rem; margin-bottom: 4rem; }
+    .portfolio-text   { font-size: 2.4rem; margin-bottom: 1rem; }
     .placeholder-card { transform: translateY(0); }
 }
 
 @media (max-width: 750px) {
-    .portfolio-text  { font-size: 2rem; margin-bottom: 3rem; }
+    .portfolio-text  { font-size: 2.3rem; margin-bottom: 0rem; }
     .card-tall img   { height: 300px; }
     .glass-shutter   { padding: 15px 18px; }
     .glass-shutter h4 { font-size: 1.3rem; height: 38px; }
@@ -201,7 +201,7 @@
 }
 
 @media (max-width: 500px) {
-    .portfolio-text  { font-size: 1.6rem; margin-bottom: 2rem; }
+    .portfolio-text  { font-size: 1.8rem; margin-bottom: 0rem; }
     .card-block      { border-radius: 12px; }
     .card-block img  { border-radius: 12px; height: 300px; }
     .glass-shutter   { border-radius: 12px 12px 0 0; height: 65%; }
