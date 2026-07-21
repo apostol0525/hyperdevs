@@ -13,6 +13,16 @@
     display: none;
 }
 
+.menu-icon button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+
+}
+
 .menu-icon-line {
     position: absolute;
     height: 0.2rem;
