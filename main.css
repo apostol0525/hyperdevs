@@ -383,7 +383,7 @@ html {
     margin-top: 1rem;
 }
 
-.footer-text span {
+.footer-text .blue {
     color: var(--blue);
 }
 
