@@ -1,20 +1,17 @@
-
-
-
-.section-1{
+.section-1 {
     margin-top: 15rem;
 }
 
 
 .section-1 .container {
-   position: relative;
+    position: relative;
 }
 
 .section-header {
-   
+
     gap: 10px;
     font-family: var(--inter);
-    
+
 }
 
 .section-header-text {
@@ -24,43 +21,42 @@
 
 .hero-el {
     opacity: 0;
-    transform: translate3d(0,28px,0);
+    transform: translate3d(0, 28px, 0);
     filter: blur(10px);
     will-change: transform, opacity, filter;
-    animation: heroRise 1s cubic-bezier(0.16,1,0.3,1) both;
+    animation: heroRise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
     animation-delay: calc(var(--i) * 0.9s);
 }
 
-@keyframes heroRise{
-    to{
+@keyframes heroRise {
+    to {
         opacity: 1;
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
         filter: blur(0);
     }
 }
 
 .split-char {
-  display: inline-block;
-  opacity: 0;
-  transform: translate3d(0,28px,0);
-  transition: opacity 1.6s ease, transform 0.6s ease;
+    display: inline-block;
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition: opacity 1.6s ease, transform 0.6s ease;
 }
+
 .split-char.in {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
 .shiny-text {
     display: inline-block;
-    background-image:linear-gradient(
-        120deg,
-        #b5b5b5 0%,
-        #b5b5b5 30%,
-        #ffffff 50%,
-        #b5b5b5 65%,
-        #b5b5b5 100%
-    );
+    background-image: linear-gradient(120deg,
+            #b5b5b5 0%,
+            #b5b5b5 30%,
+            #ffffff 50%,
+            #b5b5b5 65%,
+            #b5b5b5 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -69,27 +65,28 @@
 }
 
 @keyframes shine {
-  0% {
-    background-position: 150% center;
-  }
-  100% {
-    background-position: -50% center;
-  }
+    0% {
+        background-position: 150% center;
+    }
+
+    100% {
+        background-position: -50% center;
+    }
 }
 
 .shiny-text:hover {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
 
 
 .section-title {
-    font-size: 10rem; 
+    font-size: 10rem;
     line-height: 1;
     letter-spacing: 1.6;
 }
 
 .section-title .split-char:nth-last-child(-n+3) {
-  color: var(--blue);
+    color: var(--blue);
 }
 
 .section-text {
@@ -101,76 +98,151 @@
     max-width: 650px;
     height: auto;
     position: absolute;
-    top:0;
+    top: 0;
     left: 45rem;
     z-index: -1;
 }
 
 .flex-desc {
- display: flex;
- justify-content: flex-end;
- margin-top: 5rem;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5rem;
 }
 
 
 .glass-desc {
-  font-size: 1rem;
-  padding: 2rem 2.5rem;
-   width: clamp(280px, 40vw, 720px);
-  background: rgba(255, 255, 255, 0.08);
+    font-size: 1rem;
+    padding: 2rem 2.5rem;
+    width: clamp(280px, 40vw, 720px);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(5px) saturate(160%);
     -webkit-backdrop-filter: blur(10px) saturate(160%);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 
+    box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         0 20px 40px rgba(0, 0, 0, 0.35);
-  border-radius: 10px;
+    border-radius: 10px;
 }
 
 .glass-desc p {
-   font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 
-/* ── Hero responsive ────────────────────────────── */
+/* ── Hero responsive */
 
 @media (max-width: 1100px) {
-    .section-title { font-size: 8rem; }
-    .section-text  { font-size: 1.6rem; }
-    .art-img       { left: 35rem; }
+    .section-title {
+        font-size: 8rem;
+    }
+
+    .section-text {
+        font-size: 1.6rem;
+    }
+
+    .art-img {
+        left: 35rem;
+    }
 }
 
 @media (max-width: 950px) {
-    .section-1       { margin-top: 12rem; }
-    .section-title   { font-size: 6rem; }
-    .section-text    { font-size: 1.4rem; }
-    .art-img         { left: 28rem; max-width: 400px; }
-    .glass-desc      { width: clamp(250px, 50vw, 500px); }
-    .glass-desc p    { font-size: 1.4rem; }
+    .section-1 {
+        margin-top: 12rem;
+    }
+
+    .section-title {
+        font-size: 6rem;
+    }
+
+    .section-text {
+        font-size: 1.4rem;
+    }
+
+    .art-img {
+        left: 28rem;
+        max-width: 400px;
+    }
+
+    .glass-desc {
+        width: clamp(250px, 50vw, 500px);
+    }
+
+    .glass-desc p {
+        font-size: 1.4rem;
+    }
 }
 
 @media (max-width: 750px) {
-    .section-1       { margin-top: 10rem; }
-    .section-title   { font-size: 5.3rem; }
-    .section-text    { font-size: 1.7rem; }
-    .art-img         { display: none; }
-    .flex-desc       { justify-content: center; margin-top: 3rem; }
-    .glass-desc      { width: 100%; }
-    .glass-desc p    { font-size: 1.7rem; }
+    .section-1 {
+        margin-top: 10rem;
+    }
+
+    .section-title {
+        font-size: 5.3rem;
+    }
+
+    .section-text {
+        font-size: 1.7rem;
+    }
+
+    .art-img {
+        display: none;
+    }
+
+    .flex-desc {
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    .glass-desc {
+        width: 100%;
+    }
+
+    .glass-desc p {
+        font-size: 1.7rem;
+    }
 }
 
 @media (max-width: 500px) {
-    .section-1       { margin-top: 8rem; }
-    .section-title   { font-size: 4rem; }
-    .section-text    { font-size: 1.5rem; }
-    .section-header-text { padding-bottom: 1rem; }
-    .flex-desc       { margin-top: 2rem; }
-    .glass-desc      { padding: 1.5rem; }
-    .glass-desc p    { font-size: 1.3rem; }
+    .section-1 {
+        margin-top: 8rem;
+    }
+
+    .section-title {
+        font-size: 4rem;
+    }
+
+    .section-text {
+        font-size: 1.5rem;
+    }
+
+    .section-header-text {
+        padding-bottom: 1rem;
+    }
+
+    .flex-desc {
+        margin-top: 2rem;
+    }
+
+    .glass-desc {
+        padding: 1.5rem;
+    }
+
+    .glass-desc p {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 380px) {
-    .section-1       { margin-top: 7rem; }
-    .section-title   { font-size: 3.5rem; }
-    .section-text    { font-size: 1.2rem; }
+    .section-1 {
+        margin-top: 7rem;
+    }
+
+    .section-title {
+        font-size: 3.5rem;
+    }
+
+    .section-text {
+        font-size: 1.2rem;
+    }
 }
